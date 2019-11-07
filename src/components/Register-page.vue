@@ -6,7 +6,7 @@
           <div class="field">
             <label for="" class="label">Username</label>
             <div class="control has-icons-left">
-              <input type="username" placeholder="e.g. bobsmith" class="input">
+              <input type="username" placeholder="e.g. bobsmith" class="input" v-model="username">
               <span class="icon is-small is-left">
                 <i class="fas fa-user"></i>
               </span>
@@ -16,7 +16,7 @@
             <div class="field">
             <label for="" class="label">Email</label>
             <div class="control has-icons-left">
-              <input type="text" placeholder="e.g. bobsmith@gmail.com" class="input">
+              <input type="text" placeholder="e.g. bobsmith@gmail.com" class="input" v-model="email">
               <span class="icon is-small is-left">
                 <i class="fa fa-envelope"></i>
               </span>
@@ -26,7 +26,7 @@
           <div class="field">
             <label for="" class="label">Password</label>
             <div class="control has-icons-left">
-              <input type="password" placeholder="*******" class="input">
+              <input type="password" placeholder="*******" class="input" v-model="password">
               <span class="icon is-small is-left">
                 <i class="fa fa-lock"></i>
               </span>
@@ -36,7 +36,7 @@
           <div class="field">
             <label for="" class="label">Phone</label>
             <div class="control has-icons-left">
-              <input type="phone" placeholder="+62 " class="input">
+              <input type="phone" placeholder="+62 " class="input" v-model="phone">
               <span class="icon is-small is-left">
                 <i class="fas fa-mobile-alt"></i>
               </span>
@@ -149,14 +149,20 @@ export default {
           password: this.password,
           phone: this.phone,
           skill: this.tags,
-          imgUrl: this.dropFiles
+          imgUrl: this.dropFiles,
+          Toast : Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 1500
+          })
 				}
 			})
         .then(({data}) => {
           localStorage.setItem('token', data.token)
 					localStorage.setItem('name', data.username)
           this.$emit('loginStatus',true)
-          Toast.fire({
+          thi.Toast.fire({
 						icon: 'success',
 						title: 'Register successfully'
 					})

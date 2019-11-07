@@ -37,7 +37,7 @@
 
 <script>
 import axios from '../../apis/server'
-// import Swal from 'sweetalert2'
+import Swal from 'sweetalert2'
 
 export default {
     props:{
