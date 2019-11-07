@@ -1,12 +1,11 @@
-<<<<<<< HEAD
-*[data-v-6633fa] {
+*[data-v-c10a61] {
   padding: 0px;
   margin: 0px;
 }
-body[data-v-6633fa] {
+body[data-v-c10a61] {
   font-family: "Poppins", sans-serif;
 }
-#navbar-home[data-v-6633fa] {
+#navbar-home[data-v-c10a61] {
   background: #e0eafc; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
@@ -19,8 +18,8 @@ body[data-v-6633fa] {
     #e0eafc
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-h1[data-v-6633fa],
-#judul[data-v-6633fa] {
+h1[data-v-c10a61],
+#judul[data-v-c10a61] {
   font-size: 50px;
   display: flex;
   justify-content: center;
@@ -28,35 +27,35 @@ h1[data-v-6633fa],
   font-weight: 500px;
   color: black;
 }
-.main-judul p[data-v-6633fa] {
+.main-judul p[data-v-c10a61] {
   margin-left: 150px;
   margin-bottom: 80px;
 }
-.main-judul[data-v-6633fa] {
+.main-judul[data-v-c10a61] {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 600px;
   margin-left: 350px;
 }
-#image-container[data-v-6633fa] {
+#image-container[data-v-c10a61] {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-#detail-image[data-v-6633fa] {
+#detail-image[data-v-c10a61] {
   width: 300px;
   height: 300px;
   margin-right: 50px;
   filter: drop-shadow(0px 10px 5px black);
-  animation: drop-data-v-6633fa 1.5s ease;
+  animation: drop-data-v-c10a61 1.5s ease;
 }
-#detail-image[data-v-6633fa]:hover {
+#detail-image[data-v-c10a61]:hover {
   -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
   transform: scale(1.2);
 }
-@keyframes drop-data-v-6633fa {
+@keyframes drop-data-v-c10a61 {
 0% {
     opacity: 0;
     transform: translateY(-80px);
@@ -65,13 +64,13 @@ h1[data-v-6633fa],
     opacity: 1;
     transform: translateY(0px);
 }
-=======
-.columns[data-v-626060] {
+}
+.columns[data-v-c10a61] {
     margin-left: -40em;
     margin-right: -40rem;
     margin-top: -rem;
 }
-.box[data-v-626060] {
+.box[data-v-c10a61] {
     background-color: white;
     border-radius: 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -79,13 +78,13 @@ h1[data-v-6633fa],
     display: block;
     padding: 4rem;
 }
-.input[data-v-626060], .taginput .taginput-container.is-focusable[data-v-626060], .textarea[data-v-626060], .select select[data-v-626060] {
+.input[data-v-c10a61], .taginput .taginput-container.is-focusable[data-v-c10a61], .textarea[data-v-c10a61], .select select[data-v-c10a61] {
     background-color: white;
     border-color: #dbdbdb;
     border-radius: 25px;
     color: #363636;
 }
-.button.is-success[data-v-626060] {
+.button.is-success[data-v-c10a61] {
     margin-top:20px;
     background-color: #db349b;
     border-color: transparent;
@@ -95,7 +94,7 @@ h1[data-v-6633fa],
     margin: 20px;
     height: auto
 }
-.label[data-v-626060] {
+.label[data-v-c10a61] {
     color: #363636;
     display: block;
     font-size: 1.5rem;
@@ -140,7 +139,6 @@ h1[data-v-6633fa],
     display: block;
     font-size: 1.5rem;
     font-weight: 600;
->>>>>>> development
 }
 /*! Buefy v0.8.6 | MIT License | github.com/buefy/buefy */
 .is-noscroll {

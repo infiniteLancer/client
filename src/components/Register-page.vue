@@ -113,6 +113,9 @@
 </template>
 
 <script>
+import axios from '../../apis/server'
+import Swal from 'sweetalert2'
+
 export default {
     props:{
       
@@ -124,35 +127,47 @@ export default {
         username: '',
         phone : '',
         dropFiles : [],
-        tags : []
+        tags : [],
+        Toast : Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }
     },
     login(){
         this.$emit('pageStatus','login')
     },
     register(){
-        // axios({
-            //     method: 'post',
-            //     url: '/user/12345',
-            //     data: {
-                    // email :'',
-                    // password : '',
-                    // username: '',
-                    // phone : '',
-                    // dropFiles : [],
-                    // tags : []
-            //     }
-            //     })
-                // .then(({data}) => {
-                //     localStorage.setItem('token', 'data')
-                //     this.$emit('loginStatus', true)
-                // })
-                // .catch(err => {
-                //     console.log(err)
-                // })
-          // console.log('dari register')
-        localStorage.setItem('token','lalala')
-        this.$emit('loginStatus',true)
+      axios({
+				method: 'post',
+				url: '/register',
+				data: {
+					username: this.username,
+					email: this.email,
+          password: this.password,
+          phone: this.phone,
+          skill: this.tags,
+          imgUrl: this.dropFiles
+				}
+			})
+        .then(({data}) => {
+          localStorage.setItem('token', data.token)
+					localStorage.setItem('name', data.username)
+          this.$emit('loginStatus',true)
+          Toast.fire({
+						icon: 'success',
+						title: 'Register successfully'
+					})
+        })
+        .catch(err => {
+					Swal.fire({
+						icon: 'error',
+						title: 'Sorry,',
+						text: err.response.data.errors.join(', ')
+					})
+				})
       }
 }
 </script>

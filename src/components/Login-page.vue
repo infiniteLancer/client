@@ -36,6 +36,9 @@
 </template>
 
 <script>
+import axios from '../../apis/server'
+// import Swal from 'sweetalert2'
+
 export default {
     props:{
         
@@ -43,28 +46,41 @@ export default {
     data(){
         return {
             email : '',
-            password : ''
+            password : '',
+            Toast : Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 1500
+            })
         }
     },
     methods:{
         signIn(){
-            // axios({
-            //     method: 'post',
-            //     url: '/user/12345',
-            //     data: {
-            //         username: '',
-            //         password: ''
-            //     }
-            //     })
-                // .then(({data}) => {
-                //     localStorage.setItem('token', 'data')
-                //     this.$emit('loginStatus', true)
-                // })
-                // .catch(err => {
-                //     console.log(err)
-                // })
-                localStorage.setItem('token','lalala')
-                this.$emit('loginStatus',true)
+            axios({
+                method: 'post',
+                url: '/login',
+                data: {
+                    email: this.email,
+                    password: this.password
+                }
+            })
+                .then(({data}) => {
+                    localStorage.setItem('token', data.token)
+                    localStorage.setItem('username', data.username)
+                    this.Toast.fire({
+						icon: 'success',
+						title: 'Login successfully'
+					})
+                    this.$emit('loginStatus',true)
+                })
+                .catch(err => {
+                    Swal.fire({
+						icon: 'error',
+						title: 'Sorry,',
+						text: err.response.data.errors.join(', ')
+					})
+                })
         },
         register(){
             // console.log('dari register')
