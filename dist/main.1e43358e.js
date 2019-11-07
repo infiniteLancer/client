@@ -9018,10 +9018,170 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
-      message: "Hello world"
+      isImageModalActive1: false,
+      isCardModalActive2: false,
+      isCardModalActive3: false
     };
   }
 };
@@ -9120,7 +9280,506 @@ exports.default = _default;
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
-      _vm._m(1)
+      _c(
+        "div",
+        { staticClass: "container", attrs: { id: "image-container" } },
+        [
+          _c(
+            "div",
+            { staticClass: "container", attrs: { id: "detail-image" } },
+            [
+              _c("div", { staticClass: "card" }, [
+                _c("div", { staticClass: "card-image" }, [
+                  _c("figure", { staticClass: "image is-4by3" }, [
+                    _c(
+                      "a",
+                      {
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            _vm.isImageModalActive1 = true
+                          }
+                        }
+                      },
+                      [
+                        _c("img", {
+                          attrs: {
+                            src:
+                              "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/a5e26787698383.5dc0687a5738b.jpg",
+                            alt: "Placeholder image"
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "container", attrs: { id: "detail-image" } },
+            [
+              _c("div", { staticClass: "card" }, [
+                _c("div", { staticClass: "card-image" }, [
+                  _c("figure", { staticClass: "image is-4by3" }, [
+                    _c(
+                      "a",
+                      {
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            _vm.isCardModalActive2 = true
+                          }
+                        }
+                      },
+                      [
+                        _c("img", {
+                          attrs: {
+                            src:
+                              "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/aaf7d087673275.5dbfe3381d2d4.jpg",
+                            alt: "Placeholder image"
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "container", attrs: { id: "detail-image" } },
+            [
+              _c("div", { staticClass: "card" }, [
+                _c("div", { staticClass: "card-image" }, [
+                  _c("figure", { staticClass: "image is-4by3" }, [
+                    _c(
+                      "a",
+                      {
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            _vm.isCardModalActive3 = true
+                          }
+                        }
+                      },
+                      [
+                        _c("img", {
+                          attrs: {
+                            src:
+                              "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif",
+                            alt: "Placeholder image"
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "container", attrs: { id: "detail-image" } },
+            [
+              _c("div", { staticClass: "card" }, [
+                _c("div", { staticClass: "card-image" }, [
+                  _c("figure", { staticClass: "image is-4by3" }, [
+                    _c(
+                      "a",
+                      {
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            _vm.isCardModalActive4 = true
+                          }
+                        }
+                      },
+                      [
+                        _c("img", {
+                          attrs: {
+                            src:
+                              "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/b7172484176265.5d56e9c4b5861.png",
+                            alt: "Placeholder image"
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "container", attrs: { id: "detail-image" } },
+            [
+              _c("div", { staticClass: "card" }, [
+                _c("div", { staticClass: "card-image" }, [
+                  _c("figure", { staticClass: "image is-4by3" }, [
+                    _c(
+                      "a",
+                      {
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            _vm.isCardModalActive5 = true
+                          }
+                        }
+                      },
+                      [
+                        _c("img", {
+                          attrs: {
+                            src:
+                              "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/2b368987528399.5dbad0622103f.png",
+                            alt: "Placeholder image"
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "container", attrs: { id: "detail-image" } },
+            [
+              _c("div", { staticClass: "card" }, [
+                _c("div", { staticClass: "card-image" }, [
+                  _c("figure", { staticClass: "image is-4by3" }, [
+                    _c(
+                      "a",
+                      {
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            _vm.isCardModalActive6 = true
+                          }
+                        }
+                      },
+                      [
+                        _c("img", {
+                          attrs: {
+                            src:
+                              "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/aa3a6687454125.5db8a80ed7e64.jpg",
+                            alt: "Placeholder image"
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "b-modal",
+            {
+              attrs: { active: _vm.isImageModalActive1 },
+              on: {
+                "update:active": function($event) {
+                  _vm.isImageModalActive1 = $event
+                }
+              }
+            },
+            [
+              _c("p", { staticClass: "image is-4by3" }, [
+                _c("img", {
+                  attrs: {
+                    src:
+                      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/a5e26787698383.5dc0687a5738b.jpg",
+                    alt: "Image"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "p",
+                {
+                  staticStyle: {
+                    "background-color": "white",
+                    display: "flex",
+                    "align-text": "center"
+                  }
+                },
+                [_vm._v("asjkasjdkajskdjalkwdjsodjlskdjflsdjfilsdjflisdjflis")]
+              ),
+              _vm._v(" "),
+              _c("p", { staticClass: "image is-4by3" }, [
+                _c("img", {
+                  attrs: {
+                    src:
+                      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif",
+                    alt: "Image"
+                  }
+                })
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "b-modal",
+            {
+              attrs: {
+                active: _vm.isCardModalActive1,
+                width: 640,
+                scroll: "keep"
+              },
+              on: {
+                "update:active": function($event) {
+                  _vm.isCardModalActive1 = $event
+                }
+              }
+            },
+            [
+              _c("div", { staticClass: "card" }, [
+                _c("div", { staticClass: "card-image" }, [
+                  _c("figure", { staticClass: "image is-4by3" }, [
+                    _c("img", {
+                      attrs: {
+                        src:
+                          "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/a5e26787698383.5dc0687a5738b.jpg",
+                        alt: "Image"
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-content" }, [
+                  _c("div", { staticClass: "media" }, [
+                    _c("div", { staticClass: "media-left" }, [
+                      _c(
+                        "figure",
+                        {
+                          staticClass: "image is-48x48",
+                          staticStyle: { "margin-bottom": "50px" }
+                        },
+                        [_c("img", { attrs: { src: "", alt: "Image" } })]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "media-content" }, [
+                      _c("p", { staticClass: "title is-4" }, [
+                        _vm._v("John Smith")
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "subtitle is-6" }, [
+                        _vm._v("@johnsmith")
+                      ])
+                    ])
+                  ]),
+                  _vm._v(
+                    "lorem ipsum dolor sit amet, consectetur adipiscing elit.\n          Phasellus nec iaculis mauris.\n          "
+                  ),
+                  _c("a", [_vm._v("@bulmaio")]),
+                  _vm._v(".\n          "),
+                  _c("a", [_vm._v("#css")]),
+                  _vm._v(" "),
+                  _c("a", [_vm._v("#responsive")]),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "content" }, [
+                    _vm._v(
+                      "\n            Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n            Phasellus nec iaculis mauris.\n            "
+                    ),
+                    _c("a", [_vm._v("@bulmaio")]),
+                    _vm._v(".\n            "),
+                    _c("a", [_vm._v("#css")]),
+                    _vm._v(" "),
+                    _c("a", [_vm._v("#responsive")]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("small", [_vm._v("11:09 PM - 1 Jan 2016")])
+                  ])
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "b-modal",
+            {
+              attrs: {
+                active: _vm.isCardModalActive2,
+                width: 640,
+                scroll: "keep"
+              },
+              on: {
+                "update:active": function($event) {
+                  _vm.isCardModalActive2 = $event
+                }
+              }
+            },
+            [
+              _c("div", { staticClass: "card" }, [
+                _c("div", { staticClass: "card-image" }, [
+                  _c("figure", { staticClass: "image is-4by3" }, [
+                    _c("img", {
+                      attrs: {
+                        src:
+                          "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/aaf7d087673275.5dbfe3381d2d4.jpg",
+                        alt: "Image"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("figure", { staticClass: "image is-4by3" }, [
+                    _c("img", {
+                      attrs: {
+                        src:
+                          "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/aaf7d087673275.5dbfe3381d2d4.jpg",
+                        alt: "Image"
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-content" }, [
+                  _c("div", { staticClass: "media" }, [
+                    _c("div", { staticClass: "media-left" }, [
+                      _c("figure", { staticClass: "image is-48x48" }, [
+                        _c("img", { attrs: { src: "", alt: "Image" } })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "media-content" }, [
+                      _c("p", { staticClass: "title is-4" }, [
+                        _vm._v("John Smith")
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "subtitle is-6" }, [
+                        _vm._v("@johnsmith")
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "content" }, [
+                    _vm._v("\n            L\n            "),
+                    _c("small", [_vm._v("11:09 PM - 1 Jan 2016")])
+                  ])
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "b-modal",
+            {
+              attrs: {
+                active: _vm.isCardModalActive3,
+                width: 640,
+                scroll: "keep"
+              },
+              on: {
+                "update:active": function($event) {
+                  _vm.isCardModalActive3 = $event
+                }
+              }
+            },
+            [
+              _c("div", { staticClass: "card" }, [
+                _c("div", { staticClass: "card-image" }, [
+                  _c("figure", { staticClass: "image is-4by3" }, [
+                    _c("img", {
+                      attrs: {
+                        src:
+                          "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif",
+                        alt: "Image"
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-content" }, [
+                  _c("div", { staticClass: "media" }, [
+                    _c("div", { staticClass: "media-left" }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "media-content",
+                        staticStyle: {
+                          display: "flex",
+                          "justify-content": "center"
+                        }
+                      },
+                      [
+                        _c("h1", [_vm._v("Title goes here")]),
+                        _vm._v(" "),
+                        _c("h3", [
+                          _vm._v(
+                            "\n                description goes here, and there are a lots of texts gonna be here\n                "
+                          ),
+                          _c("br"),
+                          _vm._v(
+                            "sdfjsdkfjlsdflksdfasdfgsdf\n                sdfksldfjlksdjklskdsdgsd\n                sdgsjdnjsdnfsndjfnskdnfkjsdnfjksdffsadkjnkadg\n              "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("a", [_vm._v("bulmaio | email goes here | phone")]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("small", [_vm._v("11:09 PM - 1 Jan 2016")]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("hr"),
+                        _vm._v(" "),
+                        _c("h5", [_vm._v("skills required | which is tags")]),
+                        _vm._v(" "),
+                        _c("h5", [_vm._v("assigned : lalalalala")]),
+                        _vm._v(" "),
+                        _c("h5", [
+                          _vm._v("requested by  5 users"),
+                          _c("h5", [
+                            _c("div", { staticClass: "card-image" }, [
+                              _c("figure", { staticClass: "image is-4by3" }, [
+                                _c("img", {
+                                  attrs: {
+                                    src:
+                                      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif",
+                                    alt: "Image"
+                                  }
+                                })
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "card-image" }, [
+                              _c("figure", { staticClass: "image is-4by3" }, [
+                                _c("img", {
+                                  attrs: {
+                                    src:
+                                      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif",
+                                    alt: "Image"
+                                  }
+                                })
+                              ])
+                            ])
+                          ])
+                        ])
+                      ]
+                    )
+                  ])
+                ])
+              ])
+            ]
+          )
+        ],
+        1
+      )
     ],
     1
   )
@@ -9135,112 +9794,6 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("p", [_vm._v("Projects featured today by our curators")])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "container", attrs: { id: "image-container" } },
-      [
-        _c("div", { staticClass: "container", attrs: { id: "detail-image" } }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-image" }, [
-              _c("figure", { staticClass: "image is-4by3" }, [
-                _c("img", {
-                  attrs: {
-                    src:
-                      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/a5e26787698383.5dc0687a5738b.jpg",
-                    alt: "Placeholder image"
-                  }
-                })
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "container", attrs: { id: "detail-image" } }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-image" }, [
-              _c("figure", { staticClass: "image is-4by3" }, [
-                _c("img", {
-                  attrs: {
-                    src:
-                      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/aaf7d087673275.5dbfe3381d2d4.jpg",
-                    alt: "Placeholder image"
-                  }
-                })
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "container", attrs: { id: "detail-image" } }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-image" }, [
-              _c("figure", { staticClass: "image is-4by3" }, [
-                _c("img", {
-                  attrs: {
-                    src:
-                      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif",
-                    alt: "Placeholder image"
-                  }
-                })
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "container", attrs: { id: "detail-image" } }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-image" }, [
-              _c("figure", { staticClass: "image is-4by3" }, [
-                _c("img", {
-                  attrs: {
-                    src:
-                      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/b7172484176265.5d56e9c4b5861.png",
-                    alt: "Placeholder image"
-                  }
-                })
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "container", attrs: { id: "detail-image" } }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-image" }, [
-              _c("figure", { staticClass: "image is-4by3" }, [
-                _c("img", {
-                  attrs: {
-                    src:
-                      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/2b368987528399.5dbad0622103f.png",
-                    alt: "Placeholder image"
-                  }
-                })
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "container", attrs: { id: "detail-image" } }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-image" }, [
-              _c("figure", { staticClass: "image is-4by3" }, [
-                _c("img", {
-                  attrs: {
-                    src:
-                      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/aa3a6687454125.5db8a80ed7e64.jpg",
-                    alt: "Placeholder image"
-                  }
-                })
-              ])
-            ])
-          ])
-        ])
-      ]
-    )
   }
 ]
 render._withStripped = true
@@ -25434,7 +25987,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "40111" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "41637" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
