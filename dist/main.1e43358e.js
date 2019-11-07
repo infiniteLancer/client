@@ -9890,6 +9890,103 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
@@ -9934,12 +10031,259 @@ exports.default = _default;
     [
       !_vm.isLogin
         ? _c("login", { on: { loginStatus: _vm.gantiLogin } })
-        : _vm._e()
+        : _vm._e(),
+      _vm._v(" "),
+      _c("div", { staticClass: "container-fluid" }, [
+        _c(
+          "form",
+          {
+            staticClass: "box",
+            staticStyle: { padding: "5rem" },
+            attrs: { action: "" }
+          },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "b-field",
+              {
+                attrs: { label: "Message", "label-position": _vm.Description }
+              },
+              [
+                _c("b-input", { attrs: { maxlength: "200", type: "textarea" } })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "field" }, [
+              _c("label", { staticClass: "label", attrs: { for: "" } }, [
+                _vm._v("Portofolio")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "control has-icons-center" }, [
+                _c(
+                  "section",
+                  [
+                    _c(
+                      "b-field",
+                      [
+                        _c(
+                          "b-upload",
+                          {
+                            attrs: { multiple: "", "drag-drop": "" },
+                            model: {
+                              value: _vm.dropFiles,
+                              callback: function($$v) {
+                                _vm.dropFiles = $$v
+                              },
+                              expression: "dropFiles"
+                            }
+                          },
+                          [
+                            _c("section", { staticClass: "section" }, [
+                              _c(
+                                "div",
+                                { staticClass: "content has-text-centered" },
+                                [
+                                  _c(
+                                    "p",
+                                    [
+                                      _c("b-icon", {
+                                        staticStyle: {
+                                          "align-items": "center"
+                                        },
+                                        attrs: {
+                                          icon: "upload",
+                                          size: "is-medium"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c("p", [
+                                    _vm._v(
+                                      "Drop your files here or click to upload"
+                                    )
+                                  ])
+                                ]
+                              )
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "tags" },
+                      _vm._l(_vm.dropFiles, function(file, index) {
+                        return _c(
+                          "span",
+                          { key: index, staticClass: "tag is-primary" },
+                          [
+                            _vm._v(
+                              "\n                  " +
+                                _vm._s(file.name) +
+                                "\n                  "
+                            ),
+                            _c("button", {
+                              staticClass: "delete is-small",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.deleteDropFile(index)
+                                }
+                              }
+                            })
+                          ]
+                        )
+                      }),
+                      0
+                    ),
+                    _vm._v(" "),
+                    [
+                      _c(
+                        "section",
+                        [
+                          _c(
+                            "b-field",
+                            { attrs: { label: "what is your speciality" } },
+                            [
+                              _c("b-taginput", {
+                                attrs: {
+                                  ellipsis: "",
+                                  icon: "label",
+                                  placeholder: "Add a tag"
+                                },
+                                model: {
+                                  value: _vm.tags,
+                                  callback: function($$v) {
+                                    _vm.tags = $$v
+                                  },
+                                  expression: "tags"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  ],
+                  2
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(3)
+          ],
+          1
+        )
+      ])
     ],
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "field" }, [
+      _c("label", { staticClass: "label", attrs: { for: "" } }, [
+        _vm._v("Name")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "control has-icons-left" }, [
+        _c("input", {
+          staticClass: "input",
+          attrs: { type: "username", placeholder: "e.g. bobsmith" }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "icon is-small is-left" }, [
+          _c("i", { staticClass: "fas fa-user" })
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "field" }, [
+      _c("label", { staticClass: "label", attrs: { for: "" } }, [
+        _vm._v("Password")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "control has-icons-left" }, [
+        _c("input", {
+          staticClass: "input",
+          attrs: { type: "password", placeholder: "*******" }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "icon is-small is-left" }, [
+          _c("i", { staticClass: "fa fa-lock" })
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "field" }, [
+      _c("label", { staticClass: "label", attrs: { for: "" } }, [
+        _vm._v("Phone")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "control has-icons-left" }, [
+        _c("input", {
+          staticClass: "input",
+          attrs: { type: "phone", placeholder: "+62 " }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "icon is-small is-left" }, [
+          _c("i", { staticClass: "fas fa-mobile-alt" })
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "field",
+        staticStyle: {
+          display: "flex",
+          "justify-content": "space-between",
+          "margin-right": "100px",
+          "margin-left": "100px"
+        }
+      },
+      [
+        _c("button", { staticClass: "button is-success" }, [
+          _vm._v("\n              Register\n            ")
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "button is-success", attrs: { type: "submit" } },
+          [_vm._v("\n            Login\n            ")]
+        )
+      ]
+    )
+  }
+]
 render._withStripped = true
 
           return {
@@ -26130,7 +26474,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56284" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51719" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

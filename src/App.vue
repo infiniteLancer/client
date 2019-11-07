@@ -2,10 +2,107 @@
 
 <div>
     <login v-if="!isLogin" @loginStatus='gantiLogin'></login>
+    <div class="container-fluid">
+      <form action="" class="box" style="padding:5rem;">
+          <div class="field">
+            <label for="" class="label">Name</label>
+            <div class="control has-icons-left">
+              <input type="username" placeholder="e.g. bobsmith" class="input">
+              <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+              </span>
+            </div>
+          </div>
+
+          <b-field label="Message"
+              :label-position="Description">
+              <b-input maxlength="200" type="textarea"></b-input>
+          </b-field>
+
+          <div class="field">
+            <label for="" class="label">Portofolio</label>
+            <div class="control has-icons-center">
+              <section>
+                  <b-field>
+                      <b-upload v-model="dropFiles"
+                          multiple
+                          drag-drop>
+                          <section class="section">
+                              <div class="content has-text-centered">
+                                  <p>
+                                      <b-icon
+                                          style="align-items:center"
+                                          icon="upload"
+                                          size="is-medium">
+                                      </b-icon>
+                                  </p>
+                                  <p>Drop your files here or click to upload</p>
+                              </div>
+                          </section>
+                      </b-upload>
+                  </b-field>
+
+          <div class="field">
+            <label for="" class="label">Password</label>
+            <div class="control has-icons-left">
+              <input type="password" placeholder="*******" class="input">
+              <span class="icon is-small is-left">
+                <i class="fa fa-lock"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="" class="label">Phone</label>
+            <div class="control has-icons-left">
+              <input type="phone" placeholder="+62 " class="input">
+              <span class="icon is-small is-left">
+                <i class="fas fa-mobile-alt"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="tags">
+              <span v-for="(file, index) in dropFiles"
+                  :key="index"
+                  class="tag is-primary" >
+                  {{file.name}}
+                  <button class="delete is-small"
+                      type="button"
+                      @click="deleteDropFile(index)">
+                  </button>
+              </span>
+          </div>
+                    <template>
+                        <section>
+                            <b-field label="what is your speciality">
+                                <b-taginput
+                                    v-model="tags"
+                                    ellipsis
+                                    icon="label"
+                                    placeholder="Add a tag">
+                                </b-taginput>
+                            </b-field>
+                        </section>
+                    </template>
+              </section>
+            </div>
+          </div>
+
+          
+
+          <div class="field" style="display:flex; justify-content:space-between; margin-right:100px; margin-left:100px">
+            <button class="button is-success">
+              Register
+            </button>
+             <button type="submit" class="button is-success">
+            Login
+            </button>
+          </div>
+        </form>
+    </div>
 </div>
     
-
-
 </template>
 <script>
 
@@ -41,6 +138,14 @@
 
 <style scoped>
 
+.container-fluid {
+    width: 100%;
+    padding-right: 20%;
+    padding-left: 20%;
+    margin-top: 10%;
+    m: ;
+    margin-bottom: 10%;
+}
 
 .columns {
     margin-left: -40em;
