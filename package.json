@@ -19,6 +19,7 @@
   "homepage": "https://github.com/infiniteLancer/client#readme",
   "dependencies": {
     "buefy": "^0.8.6",
+    "i": "^0.3.6",
     "vue": "^2.6.10",
     "vue-hot-reload-api": "^2.3.4"
   },
