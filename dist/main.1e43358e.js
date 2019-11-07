@@ -8884,7 +8884,255 @@ function patchScopedSlots (instance) {
   }
 }
 
-},{}],"src/App.vue":[function(require,module,exports) {
+},{}],"src/components/Login-page.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  props: {},
+  data: function data() {
+    return {
+      email: '',
+      password: ''
+    };
+  },
+  methods: {
+    signIn: function signIn() {
+      // axios({
+      //     method: 'post',
+      //     url: '/user/12345',
+      //     data: {
+      //         username: '',
+      //         password: ''
+      //     }
+      //     })
+      // .then(({data}) => {
+      //     localStorage.setItem('token', 'data')
+      //     this.$emit('loginStatus', true)
+      // })
+      // .catch(err => {
+      //     console.log(err)
+      // })
+      localStorage.setItem('token', 'lalala');
+      this.$emit('loginStatus', true);
+    },
+    register: function register() {
+      // console.log('dari register')
+      this.$emit('pageStatus', 'register');
+    }
+  }
+};
+exports.default = _default;
+        var $ef3b98 = exports.default || module.exports;
+      
+      if (typeof $ef3b98 === 'function') {
+        $ef3b98 = $ef3b98.options;
+      }
+    
+        /* template */
+        Object.assign($ef3b98, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "form",
+      {
+        staticClass: "box",
+        staticStyle: { display: "block" },
+        attrs: { action: "" },
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.signIn($event)
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "field" }, [
+          _c("label", { staticClass: "label", attrs: { for: "" } }, [
+            _vm._v("Email")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "control has-icons-left" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.email,
+                  expression: "email"
+                }
+              ],
+              staticClass: "input",
+              attrs: { type: "text", placeholder: "e.g. bobsmith@gmail.com" },
+              domProps: { value: _vm.email },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.email = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm._m(0)
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "field" }, [
+          _c("label", { staticClass: "label", attrs: { for: "" } }, [
+            _vm._v("Password")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "control has-icons-left" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.password,
+                  expression: "password"
+                }
+              ],
+              staticClass: "input",
+              attrs: { type: "password", placeholder: "*******" },
+              domProps: { value: _vm.password },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.password = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm._m(1)
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "field",
+            staticStyle: { display: "flex", "justify-content": "space-between" }
+          },
+          [
+            _c(
+              "button",
+              { staticClass: "button is-success", attrs: { type: "submit" } },
+              [_vm._v("\n            Login\n            ")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "button is-success",
+                attrs: { type: "button" },
+                on: { click: _vm.register }
+              },
+              [_vm._v("\n            Register\n            ")]
+            )
+          ]
+        )
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "icon is-small is-left" }, [
+      _c("i", { staticClass: "fa fa-envelope" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "icon is-small is-left" }, [
+      _c("i", { staticClass: "fa fa-lock" })
+    ])
+  }
+]
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$ef3b98', $ef3b98);
+          } else {
+            api.reload('$ef3b98', $ef3b98);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/Register-page.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -9005,6 +9253,363 @@ exports.default = void 0;
 //
 //
 //
+var _default = {
+  props: {},
+  data: function data() {
+    return {
+      email: '',
+      password: '',
+      username: '',
+      phone: '',
+      dropFiles: [],
+      tags: []
+    };
+  },
+  login: function login() {
+    this.$emit('pageStatus', 'login');
+  },
+  register: function register() {
+    // axios({
+    //     method: 'post',
+    //     url: '/user/12345',
+    //     data: {
+    // email :'',
+    // password : '',
+    // username: '',
+    // phone : '',
+    // dropFiles : [],
+    // tags : []
+    //     }
+    //     })
+    // .then(({data}) => {
+    //     localStorage.setItem('token', 'data')
+    //     this.$emit('loginStatus', true)
+    // })
+    // .catch(err => {
+    //     console.log(err)
+    // })
+    // console.log('dari register')
+    localStorage.setItem('token', 'lalala');
+    this.$emit('loginStatus', true);
+  }
+};
+exports.default = _default;
+        var $d9ca32 = exports.default || module.exports;
+      
+      if (typeof $d9ca32 === 'function') {
+        $d9ca32 = $d9ca32.options;
+      }
+    
+        /* template */
+        Object.assign($d9ca32, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "form",
+      {
+        staticClass: "box",
+        staticStyle: { padding: "2rem" },
+        attrs: { action: "" }
+      },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _vm._m(3),
+        _vm._v(" "),
+        _c("div", { staticClass: "field" }, [
+          _c("label", { staticClass: "label", attrs: { for: "" } }, [
+            _vm._v("Portofolio")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "control has-icons-center" }, [
+            _c(
+              "section",
+              [
+                _c(
+                  "b-field",
+                  [
+                    _c(
+                      "b-upload",
+                      {
+                        attrs: { multiple: "", "drag-drop": "" },
+                        model: {
+                          value: _vm.dropFiles,
+                          callback: function($$v) {
+                            _vm.dropFiles = $$v
+                          },
+                          expression: "dropFiles"
+                        }
+                      },
+                      [
+                        _c("section", { staticClass: "section" }, [
+                          _c(
+                            "div",
+                            { staticClass: "content has-text-centered" },
+                            [
+                              _c(
+                                "p",
+                                [
+                                  _c("b-icon", {
+                                    staticStyle: { "align-items": "center" },
+                                    attrs: { icon: "upload", size: "is-medium" }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v(
+                                  "Drop your files here or click to upload"
+                                )
+                              ])
+                            ]
+                          )
+                        ])
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "tags" },
+                  _vm._l(_vm.dropFiles, function(file, index) {
+                    return _c(
+                      "span",
+                      { key: index, staticClass: "tag is-primary" },
+                      [
+                        _vm._v(
+                          "\n                          " +
+                            _vm._s(file.name) +
+                            "\n                          "
+                        ),
+                        _c("button", {
+                          staticClass: "delete is-small",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function($event) {
+                              return _vm.deleteDropFile(index)
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                [
+                  _c(
+                    "section",
+                    [
+                      _c(
+                        "b-field",
+                        { attrs: { label: "what is your speciality" } },
+                        [
+                          _c("b-taginput", {
+                            attrs: {
+                              ellipsis: "",
+                              icon: "label",
+                              placeholder: "Add a tag"
+                            },
+                            model: {
+                              value: _vm.tags,
+                              callback: function($$v) {
+                                _vm.tags = $$v
+                              },
+                              expression: "tags"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ]
+              ],
+              2
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(4)
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "field" }, [
+      _c("label", { staticClass: "label", attrs: { for: "" } }, [
+        _vm._v("Username")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "control has-icons-left" }, [
+        _c("input", {
+          staticClass: "input",
+          attrs: { type: "username", placeholder: "e.g. bobsmith" }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "icon is-small is-left" }, [
+          _c("i", { staticClass: "fas fa-user" })
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "field" }, [
+      _c("label", { staticClass: "label", attrs: { for: "" } }, [
+        _vm._v("Email")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "control has-icons-left" }, [
+        _c("input", {
+          staticClass: "input",
+          attrs: { type: "text", placeholder: "e.g. bobsmith@gmail.com" }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "icon is-small is-left" }, [
+          _c("i", { staticClass: "fa fa-envelope" })
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "field" }, [
+      _c("label", { staticClass: "label", attrs: { for: "" } }, [
+        _vm._v("Password")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "control has-icons-left" }, [
+        _c("input", {
+          staticClass: "input",
+          attrs: { type: "password", placeholder: "*******" }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "icon is-small is-left" }, [
+          _c("i", { staticClass: "fa fa-lock" })
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "field" }, [
+      _c("label", { staticClass: "label", attrs: { for: "" } }, [
+        _vm._v("Phone")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "control has-icons-left" }, [
+        _c("input", {
+          staticClass: "input",
+          attrs: { type: "phone", placeholder: "+62 " }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "icon is-small is-left" }, [
+          _c("i", { staticClass: "fas fa-mobile-alt" })
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "field",
+        staticStyle: {
+          display: "flex",
+          "justify-content": "space-between",
+          "margin-right": "100px",
+          "margin-left": "100px"
+        }
+      },
+      [
+        _c("button", { staticClass: "button is-success" }, [
+          _vm._v("\n              Register\n            ")
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "button is-success", attrs: { type: "submit" } },
+          [_vm._v("\n            Login\n            ")]
+        )
+      ]
+    )
+  }
+]
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$d9ca32', $d9ca32);
+          } else {
+            api.reload('$d9ca32', $d9ca32);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/views/Login .vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _LoginPage = _interopRequireDefault(require("../components/Login-page"));
+
+var _RegisterPage = _interopRequireDefault(require("../components/Register-page"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
 //
 //
 //
@@ -9054,223 +9659,114 @@ exports.default = void 0;
 var _default = {
   data: function data() {
     return {
-      message: 'Hello world',
-      tags: ['Auckland', 'Wellington', 'Very long string that would overflow'],
-      dropFiles: []
+      page: 'login'
     };
   },
   methods: {
-    deleteDropFile: function deleteDropFile(index) {
-      this.dropFiles.splice(index, 1);
+    gantiLogin: function gantiLogin(status) {
+      this.$emit('loginStatus', status);
+    },
+    gantiPage: function gantiPage(page) {
+      console.log(page, 'ini dari page');
+      this.page = page;
     }
   },
-  mounted: function mounted() {}
+  components: {
+    loginPage: _LoginPage.default,
+    registerPage: _RegisterPage.default
+  }
 };
 exports.default = _default;
-        var $626060 = exports.default || module.exports;
+        var $d011f3 = exports.default || module.exports;
       
-      if (typeof $626060 === 'function') {
-        $626060 = $626060.options;
+      if (typeof $d011f3 === 'function') {
+        $d011f3 = $d011f3.options;
       }
     
         /* template */
-        Object.assign($626060, (function () {
+        Object.assign($d011f3, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("section", { staticClass: "hero is-primary is-fullheight" }, [
-      _c(
-        "div",
-        {
-          staticClass: "hero-body",
-          staticStyle: {
-            "background-image": "url('/login-page.713b2482.jpg')"
-          }
-        },
-        [
-          _c("div", { staticClass: "container" }, [
-            _c("div", { staticClass: "columns is-centered" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "column is-5-tablet is-4-desktop is-3-widescreen",
-                  staticStyle: {
-                    display: "flex",
-                    "justify-content": "space-between"
-                  }
-                },
-                [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _vm._m(1),
-                  _vm._v(" "),
+      _vm.page == "login"
+        ? _c(
+            "div",
+            {
+              staticClass: "hero-body",
+              staticStyle: {
+                "background-image":
+                  "url('/login-page.713b2482.jpg')"
+              }
+            },
+            [
+              _c("div", { staticClass: "container" }, [
+                _c("div", { staticClass: "columns is-centered" }, [
                   _c(
-                    "form",
+                    "div",
                     {
-                      staticClass: "box",
-                      staticStyle: { padding: "2rem", display: "none" },
-                      attrs: { action: "" }
+                      staticClass:
+                        "column is-5-tablet is-4-desktop is-3-widescreen",
+                      staticStyle: {
+                        display: "flex",
+                        "justify-content": "space-between"
+                      }
                     },
                     [
-                      _vm._m(2),
+                      _vm._m(0),
                       _vm._v(" "),
-                      _vm._m(3),
-                      _vm._v(" "),
-                      _vm._m(4),
-                      _vm._v(" "),
-                      _vm._m(5),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "field" }, [
-                        _c(
-                          "label",
-                          { staticClass: "label", attrs: { for: "" } },
-                          [_vm._v("Portofolio")]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "control has-icons-center" }, [
-                          _c(
-                            "section",
-                            [
-                              _c(
-                                "b-field",
-                                [
-                                  _c(
-                                    "b-upload",
-                                    {
-                                      attrs: { multiple: "", "drag-drop": "" },
-                                      model: {
-                                        value: _vm.dropFiles,
-                                        callback: function($$v) {
-                                          _vm.dropFiles = $$v
-                                        },
-                                        expression: "dropFiles"
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "section",
-                                        { staticClass: "section" },
-                                        [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "content has-text-centered"
-                                            },
-                                            [
-                                              _c(
-                                                "p",
-                                                [
-                                                  _c("b-icon", {
-                                                    staticStyle: {
-                                                      "align-items": "center"
-                                                    },
-                                                    attrs: {
-                                                      icon: "upload",
-                                                      size: "is-medium"
-                                                    }
-                                                  })
-                                                ],
-                                                1
-                                              ),
-                                              _vm._v(" "),
-                                              _c("p", [
-                                                _vm._v(
-                                                  "Drop your files here or click to upload"
-                                                )
-                                              ])
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "tags" },
-                                _vm._l(_vm.dropFiles, function(file, index) {
-                                  return _c(
-                                    "span",
-                                    {
-                                      key: index,
-                                      staticClass: "tag is-primary"
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                                          " +
-                                          _vm._s(file.name) +
-                                          "\n                                          "
-                                      ),
-                                      _c("button", {
-                                        staticClass: "delete is-small",
-                                        attrs: { type: "button" },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.deleteDropFile(index)
-                                          }
-                                        }
-                                      })
-                                    ]
-                                  )
-                                }),
-                                0
-                              ),
-                              _vm._v(" "),
-                              [
-                                _c(
-                                  "section",
-                                  [
-                                    _c(
-                                      "b-field",
-                                      {
-                                        attrs: {
-                                          label: "what is your speciality"
-                                        }
-                                      },
-                                      [
-                                        _c("b-taginput", {
-                                          attrs: {
-                                            ellipsis: "",
-                                            icon: "label",
-                                            placeholder: "Add a tag"
-                                          },
-                                          model: {
-                                            value: _vm.tags,
-                                            callback: function($$v) {
-                                              _vm.tags = $$v
-                                            },
-                                            expression: "tags"
-                                          }
-                                        })
-                                      ],
-                                      1
-                                    )
-                                  ],
-                                  1
-                                )
-                              ]
-                            ],
-                            2
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _vm._m(6)
-                    ]
+                      _c("loginPage", {
+                        on: {
+                          loginStatus: _vm.gantiLogin,
+                          pageStatus: _vm.gantiPage
+                        }
+                      })
+                    ],
+                    1
                   )
-                ]
-              )
-            ])
-          ])
-        ]
-      )
+                ])
+              ])
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.page == "register"
+        ? _c(
+            "div",
+            {
+              staticClass: "hero-body",
+              staticStyle: {
+                "background-image":
+                  "url('/register-page.2b045d83.jpg')"
+              }
+            },
+            [
+              _c("div", { staticClass: "container" }, [
+                _c("div", { staticClass: "columns is-centered" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "column is-5-tablet is-4-desktop is-3-widescreen",
+                      staticStyle: {
+                        display: "flex",
+                        "justify-content": "space-between"
+                      }
+                    },
+                    [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c("registerPage", { on: { pageStatus: _vm.gantiPage } })
+                    ],
+                    1
+                  )
+                ])
+              ])
+            ]
+          )
+        : _vm._e()
     ])
   ])
 }
@@ -9312,191 +9808,138 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "form",
-      {
-        staticClass: "box",
-        staticStyle: { display: "block" },
-        attrs: { action: "" }
-      },
-      [
-        _c("div", { staticClass: "field" }, [
-          _c("label", { staticClass: "label", attrs: { for: "" } }, [
-            _vm._v("Email")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "control has-icons-left" }, [
-            _c("input", {
-              staticClass: "input",
-              attrs: {
-                type: "email",
-                placeholder: "e.g. bobsmith@gmail.com",
-                required: ""
-              }
-            }),
-            _vm._v(" "),
-            _c("span", { staticClass: "icon is-small is-left" }, [
-              _c("i", { staticClass: "fa fa-envelope" })
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "field" }, [
-          _c("label", { staticClass: "label", attrs: { for: "" } }, [
-            _vm._v("Password")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "control has-icons-left" }, [
-            _c("input", {
-              staticClass: "input",
-              attrs: { type: "password", placeholder: "*******", required: "" }
-            }),
-            _vm._v(" "),
-            _c("span", { staticClass: "icon is-small is-left" }, [
-              _c("i", { staticClass: "fa fa-lock" })
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "field",
-            staticStyle: { display: "flex", "justify-content": "space-between" }
-          },
-          [
-            _c("button", { staticClass: "button is-success" }, [
-              _vm._v(
-                "\n                              Login\n                            "
-              )
-            ]),
-            _vm._v(" "),
-            _c("button", { staticClass: "button is-success" }, [
-              _vm._v(
-                "\n                              Register\n                            "
-              )
-            ])
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "field" }, [
-      _c("label", { staticClass: "label", attrs: { for: "" } }, [
-        _vm._v("Username")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "control has-icons-left" }, [
-        _c("input", {
-          staticClass: "input",
-          attrs: {
-            type: "username",
-            placeholder: "e.g. bobsmith",
-            required: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "icon is-small is-left" }, [
-          _c("i", { staticClass: "fas fa-user" })
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "field" }, [
-      _c("label", { staticClass: "label", attrs: { for: "" } }, [
-        _vm._v("Email")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "control has-icons-left" }, [
-        _c("input", {
-          staticClass: "input",
-          attrs: {
-            type: "email",
-            placeholder: "e.g. bobsmith@gmail.com",
-            required: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "icon is-small is-left" }, [
-          _c("i", { staticClass: "fa fa-envelope" })
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "field" }, [
-      _c("label", { staticClass: "label", attrs: { for: "" } }, [
-        _vm._v("Password")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "control has-icons-left" }, [
-        _c("input", {
-          staticClass: "input",
-          attrs: { type: "password", placeholder: "*******", required: "" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "icon is-small is-left" }, [
-          _c("i", { staticClass: "fa fa-lock" })
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "field" }, [
-      _c("label", { staticClass: "label", attrs: { for: "" } }, [
-        _vm._v("Phone")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "control has-icons-left" }, [
-        _c("input", {
-          staticClass: "input",
-          attrs: { type: "phone", placeholder: "+62 ", required: "" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "icon is-small is-left" }, [
-          _c("i", { staticClass: "fas fa-mobile-alt" })
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
       "div",
       {
-        staticClass: "field",
+        staticClass: "quotes-area",
         staticStyle: {
           display: "flex",
-          "justify-content": "space-between",
-          "margin-right": "100px",
-          "margin-left": "100px"
+          "justify-content": "center",
+          "align-items": "center"
         }
       },
       [
-        _c("button", { staticClass: "button is-success" }, [
-          _vm._v(
-            "\n                              Register\n                            "
+        _c("div", { staticClass: "home-quotes" }, [
+          _c(
+            "h1",
+            {
+              staticStyle: {
+                "text-align": "right",
+                "margin-right": "100px",
+                "font-size": "72px",
+                "text-shadow": "3px 2px 7px rgba(0,0,0,0.51)",
+                width: "500px"
+              }
+            },
+            [_vm._v("Deadlines are our friends & you can be one too!")]
           )
         ])
       ]
     )
   }
 ]
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$d011f3', $d011f3);
+          } else {
+            api.reload('$d011f3', $d011f3);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"../components/Login-page":"src/components/Login-page.vue","../components/Register-page":"src/components/Register-page.vue","./../../img/login-page.jpg":[["login-page.713b2482.jpg","img/login-page.jpg"],"img/login-page.jpg"],"_css_loader":"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js","./../../img/register-page.jpg":[["register-page.2b045d83.jpg","img/register-page.jpg"],"img/register-page.jpg"],"vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/App.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _Login = _interopRequireDefault(require("./views/Login "));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  data: function data() {
+    return {
+      tags: [],
+      dropFiles: [],
+      isLogin: false
+    };
+  },
+  components: {
+    login: _Login.default
+  },
+  methods: {
+    deleteDropFile: function deleteDropFile(index) {
+      this.dropFiles.splice(index, 1);
+    },
+    gantiLogin: function gantiLogin(status) {
+      console.log('dari ganti login');
+      this.isLogin = status;
+    }
+  },
+  created: function created() {
+    if (localStorage.getItem('token')) {
+      this.isLogin = true;
+    }
+  }
+};
+exports.default = _default;
+        var $626060 = exports.default || module.exports;
+      
+      if (typeof $626060 === 'function') {
+        $626060 = $626060.options;
+      }
+    
+        /* template */
+        Object.assign($626060, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      !_vm.isLogin
+        ? _c("login", { on: { loginStatus: _vm.gantiLogin } })
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
           return {
@@ -9529,7 +9972,7 @@ render._withStripped = true
       
       }
     })();
-},{"./../img/login-page.jpg":[["login-page.713b2482.jpg","img/login-page.jpg"],"img/login-page.jpg"],"_css_loader":"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"node_modules/buefy/dist/esm/chunk-40949afc.js":[function(require,module,exports) {
+},{"./views/Login ":"src/views/Login .vue","_css_loader":"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"node_modules/buefy/dist/esm/chunk-40949afc.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -25687,7 +26130,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52843" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56284" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
