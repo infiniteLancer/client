@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *[data-v-6633fa] {
   padding: 0px;
   margin: 0px;
@@ -64,6 +65,82 @@ h1[data-v-6633fa],
     opacity: 1;
     transform: translateY(0px);
 }
+=======
+.columns[data-v-626060] {
+    margin-left: -40em;
+    margin-right: -40rem;
+    margin-top: -rem;
+}
+.box[data-v-626060] {
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: #4a4a4a;
+    display: block;
+    padding: 4rem;
+}
+.input[data-v-626060], .taginput .taginput-container.is-focusable[data-v-626060], .textarea[data-v-626060], .select select[data-v-626060] {
+    background-color: white;
+    border-color: #dbdbdb;
+    border-radius: 25px;
+    color: #363636;
+}
+.button.is-success[data-v-626060] {
+    margin-top:20px;
+    background-color: #db349b;
+    border-color: transparent;
+    color: #fff;
+    border-radius: 25px;
+    width: 120px;
+    margin: 20px;
+    height: auto
+}
+.label[data-v-626060] {
+    color: #363636;
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.columns {
+    margin-left: -40em;
+    margin-right: -40rem;
+    margin-top: -rem;
+    
+}
+
+.box {
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: #4a4a4a;
+    display: block;
+    padding: 4rem;
+}
+
+.input, .taginput .taginput-container.is-focusable, .textarea, .select select {
+    background-color: white;
+    border-color: #dbdbdb;
+    border-radius: 25px;
+    color: #363636;
+}
+
+.button.is-success {
+    margin-top:20px;
+    background-color: #db349b;
+    border-color: transparent;
+    color: #fff;
+    border-radius: 25px;
+    width: 120px;
+    margin: 20px;
+    height: auto
+}
+
+.label {
+    color: #363636;
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+>>>>>>> development
 }
 /*! Buefy v0.8.6 | MIT License | github.com/buefy/buefy */
 .is-noscroll {
