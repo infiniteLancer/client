@@ -9987,9 +9987,265 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
+      isImageModalActive1: false,
+      isCardModalActive2: false,
+      isCardModalActive3: false,
       tags: [],
       dropFiles: [],
       isLogin: false
@@ -10026,170 +10282,704 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      !_vm.isLogin
-        ? _c("login", { on: { loginStatus: _vm.gantiLogin } })
-        : _vm._e(),
-      _vm._v(" "),
-      _c("div", { staticClass: "container-fluid" }, [
+  return _c("div", [
+    _c(
+      "form",
+      {
+        staticClass: "box",
+        staticStyle: {
+          padding: "5rem",
+          display: "flex",
+          "flex-direction": "column",
+          "justify-content": "center",
+          "margin-right": "30%",
+          "margin-top": "100px",
+          "margin-left": "30%",
+          "margin-bottom": "200px"
+        },
+        attrs: { action: "" }
+      },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
         _c(
-          "form",
+          "b-field",
+          { attrs: { label: "Message", "label-position": _vm.Description } },
+          [
+            _c("b-input", {
+              attrs: {
+                maxlength: "200",
+                type: "textarea",
+                placeholder: "Describe your idea"
+              }
+            })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "field" }, [
+          _c("label", { staticClass: "label", attrs: { for: "" } }, [
+            _vm._v("References")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "control has-icons-center" }, [
+            _c(
+              "section",
+              [
+                _c(
+                  "b-field",
+                  [
+                    _c(
+                      "b-upload",
+                      {
+                        attrs: { multiple: "", "drag-drop": "" },
+                        model: {
+                          value: _vm.dropFiles,
+                          callback: function($$v) {
+                            _vm.dropFiles = $$v
+                          },
+                          expression: "dropFiles"
+                        }
+                      },
+                      [
+                        _c("section", { staticClass: "section" }, [
+                          _c(
+                            "div",
+                            { staticClass: "content has-text-centered" },
+                            [
+                              _c(
+                                "p",
+                                [
+                                  _c("b-icon", {
+                                    staticStyle: { "align-items": "center" },
+                                    attrs: { icon: "upload", size: "is-medium" }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v(
+                                  "Drop your files here or click to upload"
+                                )
+                              ])
+                            ]
+                          )
+                        ])
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "tags" },
+                  _vm._l(_vm.dropFiles, function(file, index) {
+                    return _c(
+                      "span",
+                      { key: index, staticClass: "tag is-primary" },
+                      [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(file.name) +
+                            "\n                        "
+                        ),
+                        _c("button", {
+                          staticClass: "delete is-small",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function($event) {
+                              return _vm.deleteDropFile(index)
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                [
+                  _c(
+                    "section",
+                    [
+                      _c(
+                        "b-field",
+                        { attrs: { label: "Insert some tags" } },
+                        [
+                          _c("b-taginput", {
+                            attrs: {
+                              ellipsis: "",
+                              icon: "label",
+                              placeholder: "Add a tag"
+                            },
+                            model: {
+                              value: _vm.tags,
+                              callback: function($$v) {
+                                _vm.tags = $$v
+                              },
+                              expression: "tags"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ]
+              ],
+              2
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _vm._m(3)
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "home", staticStyle: { display: "none" } },
+      [
+        _c(
+          "div",
+          [
+            !_vm.isLogin
+              ? _c("login", { on: { loginStatus: _vm.gantiLogin } })
+              : _vm._e()
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "b-navbar",
           {
-            staticClass: "box",
-            staticStyle: { padding: "5rem" },
-            attrs: { action: "" }
+            staticStyle: {
+              height: "120px",
+              "box-shadow":
+                "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.05)",
+              background: "#f8f8f8"
+            },
+            attrs: { id: "navbar-home" }
           },
           [
-            _vm._m(0),
+            _c("template", { slot: "brand" }),
             _vm._v(" "),
             _c(
-              "b-field",
-              {
-                attrs: { label: "Message", "label-position": _vm.Description }
-              },
+              "template",
+              { slot: "start" },
               [
-                _c("b-input", { attrs: { maxlength: "200", type: "textarea" } })
+                _c(
+                  "b-navbar-item",
+                  {
+                    staticStyle: { "margin-left": "200px" },
+                    attrs: { tag: "router-link", to: { path: "/" } }
+                  },
+                  [
+                    _c("img", {
+                      staticStyle: { height: "auto" },
+                      attrs: {
+                        src: "/infinite-hub.4fa86f7c.png",
+                        alt:
+                          "Lightweight UI components for Vue.js based on Bulma"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c("b-navbar-item", { attrs: { href: "#" } }, [
+                  _vm._v("Infinite Fox")
+                ]),
+                _vm._v(" "),
+                _c("b-navbar-item", { attrs: { href: "#" } }, [
+                  _vm._v("Post Job")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "b-navbar-dropdown",
+                  { attrs: { label: "Info" } },
+                  [
+                    _c("b-navbar-item", { attrs: { href: "#" } }, [
+                      _vm._v("About")
+                    ]),
+                    _vm._v(" "),
+                    _c("b-navbar-item", { attrs: { href: "#" } }, [
+                      _vm._v("Contact")
+                    ])
+                  ],
+                  1
+                )
               ],
               1
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "field" }, [
-              _c("label", { staticClass: "label", attrs: { for: "" } }, [
-                _vm._v("Portofolio")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "control has-icons-center" }, [
+            _c(
+              "template",
+              { slot: "end" },
+              [
                 _c(
-                  "section",
+                  "b-navbar-item",
+                  { attrs: { tag: "div" } },
                   [
                     _c(
-                      "b-field",
-                      [
-                        _c(
-                          "b-upload",
-                          {
-                            attrs: { multiple: "", "drag-drop": "" },
-                            model: {
-                              value: _vm.dropFiles,
-                              callback: function($$v) {
-                                _vm.dropFiles = $$v
-                              },
-                              expression: "dropFiles"
-                            }
-                          },
-                          [
-                            _c("section", { staticClass: "section" }, [
-                              _c(
-                                "div",
-                                { staticClass: "content has-text-centered" },
-                                [
-                                  _c(
-                                    "p",
-                                    [
-                                      _c("b-icon", {
-                                        staticStyle: {
-                                          "align-items": "center"
-                                        },
-                                        attrs: {
-                                          icon: "upload",
-                                          size: "is-medium"
-                                        }
-                                      })
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c("p", [
-                                    _vm._v(
-                                      "Drop your files here or click to upload"
-                                    )
-                                  ])
-                                ]
-                              )
-                            ])
-                          ]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _vm._m(1),
-                    _vm._v(" "),
-                    _vm._m(2),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "tags" },
-                      _vm._l(_vm.dropFiles, function(file, index) {
-                        return _c(
-                          "span",
-                          { key: index, staticClass: "tag is-primary" },
-                          [
-                            _vm._v(
-                              "\n                  " +
-                                _vm._s(file.name) +
-                                "\n                  "
-                            ),
-                            _c("button", {
-                              staticClass: "delete is-small",
-                              attrs: { type: "button" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.deleteDropFile(index)
-                                }
-                              }
-                            })
-                          ]
-                        )
-                      }),
-                      0
-                    ),
-                    _vm._v(" "),
-                    [
-                      _c(
-                        "section",
-                        [
-                          _c(
-                            "b-field",
-                            { attrs: { label: "what is your speciality" } },
-                            [
-                              _c("b-taginput", {
-                                attrs: {
-                                  ellipsis: "",
-                                  icon: "label",
-                                  placeholder: "Add a tag"
-                                },
-                                model: {
-                                  value: _vm.tags,
-                                  callback: function($$v) {
-                                    _vm.tags = $$v
-                                  },
-                                  expression: "tags"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ]
+                      "b-button",
+                      {
+                        staticStyle: { "margin-right": "200px" },
+                        attrs: { type: "is-info" }
+                      },
+                      [_vm._v("logout")]
+                    )
                   ],
-                  2
+                  1
                 )
-              ])
+              ],
+              1
+            )
+          ],
+          2
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "main-judul",
+            staticStyle: {
+              display: "flex",
+              "justify-content": "center",
+              "margin-bottom": "75px",
+              "margin-top": "50px"
+            }
+          },
+          [
+            _c("center", [
+              _c("img", {
+                attrs: {
+                  src: "/hello.726996c0.gif",
+                  alt: "Trulli",
+                  width: "500",
+                  height: "333"
+                }
+              })
             ]),
             _vm._v(" "),
-            _vm._m(3)
+            _c("h1", [_vm._v("One stop solution")]),
+            _vm._v(" "),
+            _c(
+              "h1",
+              {
+                staticStyle: {
+                  "font-size": "24px",
+                  "padding-top": "-300px",
+                  "font-style": "italic"
+                }
+              },
+              [_vm._v("for you to hire or to be hired")]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "container", attrs: { id: "image-container" } },
+          [
+            _c(
+              "div",
+              { staticClass: "container", attrs: { id: "detail-image" } },
+              [
+                _c("div", { staticClass: "card" }, [
+                  _c("div", { staticClass: "card-image" }, [
+                    _c("figure", { staticClass: "image is-4by3" }, [
+                      _c(
+                        "a",
+                        {
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              _vm.isCardModalActive3 = true
+                            }
+                          }
+                        },
+                        [
+                          _c("img", {
+                            attrs: {
+                              src:
+                                "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif",
+                              alt: "Placeholder image"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(4)
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "container", attrs: { id: "detail-image" } },
+              [
+                _c("div", { staticClass: "card" }, [
+                  _c("div", { staticClass: "card-image" }, [
+                    _c("figure", { staticClass: "image is-4by3" }, [
+                      _c(
+                        "a",
+                        {
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              _vm.isCardModalActive3 = true
+                            }
+                          }
+                        },
+                        [
+                          _c("img", {
+                            attrs: {
+                              src:
+                                "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif",
+                              alt: "Placeholder image"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(5)
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "container", attrs: { id: "detail-image" } },
+              [
+                _c("div", { staticClass: "card" }, [
+                  _c("div", { staticClass: "card-image" }, [
+                    _c("figure", { staticClass: "image is-4by3" }, [
+                      _c(
+                        "a",
+                        {
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              _vm.isCardModalActive3 = true
+                            }
+                          }
+                        },
+                        [
+                          _c("img", {
+                            attrs: {
+                              src:
+                                "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif",
+                              alt: "Placeholder image"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(6)
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "container", attrs: { id: "detail-image" } },
+              [
+                _c("div", { staticClass: "card" }, [
+                  _c("div", { staticClass: "card-image" }, [
+                    _c("figure", { staticClass: "image is-4by3" }, [
+                      _c(
+                        "a",
+                        {
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              _vm.isCardModalActive3 = true
+                            }
+                          }
+                        },
+                        [
+                          _c("img", {
+                            attrs: {
+                              src:
+                                "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif",
+                              alt: "Placeholder image"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(7)
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "b-modal",
+              {
+                attrs: {
+                  active: _vm.isCardModalActive3,
+                  width: 640,
+                  scroll: "keep"
+                },
+                on: {
+                  "update:active": function($event) {
+                    _vm.isCardModalActive3 = $event
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "card" }, [
+                  _c("div", { staticClass: "card-image" }, [
+                    _c("figure", { staticClass: "image is-4by3" }, [
+                      _c("img", {
+                        attrs: {
+                          src:
+                            "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif",
+                          alt: "Image"
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-content" }, [
+                    _c("div", { staticClass: "media" }, [
+                      _c("div", { staticClass: "media-left" }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "media-content",
+                          staticStyle: {
+                            display: "flex",
+                            "justify-content": "center",
+                            "flex-direction": "column"
+                          }
+                        },
+                        [
+                          _c(
+                            "div",
+                            { staticClass: "content-text" },
+                            [
+                              _c(
+                                "h3",
+                                { staticStyle: { "font-size": "36px" } },
+                                [_vm._v("Title goes here")]
+                              ),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("hr"),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c(
+                                "h3",
+                                { staticStyle: { "font-style": "italic" } },
+                                [_vm._v("description :")]
+                              ),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("h3", [
+                                _vm._v(
+                                  "\n                        goes here, and there are a lots of texts gonna be here sdfksldfjlksdjklskdsdgsd\n                        sdgsjdnjsdnfsndjfnskdnfkjsdnfjksdffsadkjnkadg sdfksldfjlksdjklskdsdgsd\n                        sdgsjdnjsdnfsndjfnskdnfkjsdnfjksdffsadkjnkadg\n                        sdfksldfjlksdjklskdsdgsd\n                        sdgsjdnjsdnfsndjfnskdnfkjsdnfjksdffsadkjnkadg\n                      "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("hr"),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("i", { staticClass: "fas fa-user-tie" }),
+                              _c(
+                                "a",
+                                { staticStyle: { "margin-right": "25px" } },
+                                [_vm._v("  Owner  ")]
+                              ),
+                              _c("i", { staticClass: "fas fa-mobile-alt" }),
+                              _vm._v(" Phone "),
+                              _c("a", {
+                                staticStyle: { "margin-right": "25px" }
+                              }),
+                              _c("i", { staticClass: "far fa-envelope" }),
+                              _vm._v(
+                                "  email goes here\n                      \n                      \n                      "
+                              ),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("hr"),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("small", [
+                                _vm._v("Deadline : 11:09 PM - 1 Jan 2016")
+                              ]),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("hr"),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              [
+                                _c(
+                                  "b-taglist",
+                                  [
+                                    _c(
+                                      "b-tag",
+                                      { attrs: { type: "is-info" } },
+                                      [_vm._v("First")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "b-tag",
+                                      { attrs: { type: "is-info" } },
+                                      [_vm._v("Second")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "b-tag",
+                                      { attrs: { type: "is-info" } },
+                                      [_vm._v("Third")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "b-tag",
+                                      { attrs: { type: "is-info" } },
+                                      [_vm._v("Fourth")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "b-tag",
+                                      { attrs: { type: "is-info" } },
+                                      [_vm._v("Fifth")]
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("hr"),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("h5", [
+                                _c("i", {
+                                  staticClass: "fas fa-user-friends",
+                                  staticStyle: {
+                                    "margin-top": "20px",
+                                    "margin-bottom": "20px"
+                                  }
+                                }),
+                                _vm._v(" people assigned")
+                              ]),
+                              _vm._v(" "),
+                              _c("h5", [
+                                _vm._v("requested by  5 users"),
+                                _c("h5", [
+                                  _c("br"),
+                                  _vm._v(" "),
+                                  _c("hr"),
+                                  _vm._v(" "),
+                                  _c("br"),
+                                  _vm._v(" "),
+                                  _c("br"),
+                                  _vm._v(" "),
+                                  _c("i", { staticClass: "far fa-bookmark" }, [
+                                    _vm._v(" taken")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("br"),
+                                  _vm._v(" "),
+                                  _c("hr"),
+                                  _vm._v(" "),
+                                  _c("br"),
+                                  _vm._v(" "),
+                                  _c("br"),
+                                  _vm._v(" "),
+                                  _c(
+                                    "h3",
+                                    { staticStyle: { "font-style": "italic" } },
+                                    [_vm._v("references :")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("br"),
+                                  _vm._v(" "),
+                                  _c("hr"),
+                                  _vm._v(" "),
+                                  _c("br"),
+                                  _vm._v(" "),
+                                  _c("br")
+                                ])
+                              ])
+                            ],
+                            2
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "card-image" }, [
+                            _c("figure", { staticClass: "image is-4by3" }, [
+                              _c("img", {
+                                attrs: {
+                                  src:
+                                    "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif",
+                                  alt: "Image"
+                                }
+                              })
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "card-image" }, [
+                            _c("figure", { staticClass: "image is-4by3" }, [
+                              _c("img", {
+                                attrs: {
+                                  src:
+                                    "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif",
+                                  alt: "Image"
+                                }
+                              })
+                            ])
+                          ])
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ]
+            )
           ],
           1
         )
-      ])
-    ],
-    1
-  )
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -10198,13 +10988,13 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "field" }, [
       _c("label", { staticClass: "label", attrs: { for: "" } }, [
-        _vm._v("Name")
+        _vm._v("name")
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "control has-icons-left" }, [
         _c("input", {
           staticClass: "input",
-          attrs: { type: "username", placeholder: "e.g. bobsmith" }
+          attrs: { type: "username", placeholder: "e.g. Edwin" }
         }),
         _vm._v(" "),
         _c("span", { staticClass: "icon is-small is-left" }, [
@@ -10219,17 +11009,17 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "field" }, [
       _c("label", { staticClass: "label", attrs: { for: "" } }, [
-        _vm._v("Password")
+        _vm._v("Email")
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "control has-icons-left" }, [
         _c("input", {
           staticClass: "input",
-          attrs: { type: "password", placeholder: "*******" }
+          attrs: { type: "text", placeholder: "e.g. edwin@gmail.com" }
         }),
         _vm._v(" "),
         _c("span", { staticClass: "icon is-small is-left" }, [
-          _c("i", { staticClass: "fa fa-lock" })
+          _c("i", { staticClass: "fa fa-envelope" })
         ])
       ])
     ])
@@ -10240,17 +11030,17 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "field" }, [
       _c("label", { staticClass: "label", attrs: { for: "" } }, [
-        _vm._v("Phone")
+        _vm._v("Deadline")
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "control has-icons-left" }, [
         _c("input", {
           staticClass: "input",
-          attrs: { type: "phone", placeholder: "+62 " }
+          attrs: { type: "text", placeholder: "e.g. bobsmith@gmail.com" }
         }),
         _vm._v(" "),
         _c("span", { staticClass: "icon is-small is-left" }, [
-          _c("i", { staticClass: "fas fa-mobile-alt" })
+          _c("i", { staticClass: "fa fa-envelope" })
         ])
       ])
     ])
@@ -10263,25 +11053,96 @@ var staticRenderFns = [
       "div",
       {
         staticClass: "field",
-        staticStyle: {
-          display: "flex",
-          "justify-content": "space-between",
-          "margin-right": "100px",
-          "margin-left": "100px"
-        }
+        staticStyle: { display: "flex", "justify-content": "space-between" }
       },
       [
-        _c("button", { staticClass: "button is-success" }, [
-          _vm._v("\n              Register\n            ")
-        ]),
-        _vm._v(" "),
         _c(
           "button",
           { staticClass: "button is-success", attrs: { type: "submit" } },
-          [_vm._v("\n            Login\n            ")]
+          [_vm._v("\n          Submit\n          ")]
         )
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "contents" }, [
+      _c(
+        "h2",
+        { staticStyle: { "font-weight": "bold", "font-size": "22px" } },
+        [_vm._v("Title goes here")]
+      ),
+      _vm._v(" "),
+      _c("hr", {
+        staticStyle: { "margin-top": "10px", "margin-bottom": "10px" }
+      }),
+      _vm._v(" "),
+      _c("h4", { staticStyle: { "font-style": "italic" } }, [
+        _vm._v("deadline goes here")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "contents" }, [
+      _c(
+        "h2",
+        { staticStyle: { "font-weight": "bold", "font-size": "22px" } },
+        [_vm._v("Title goes here")]
+      ),
+      _vm._v(" "),
+      _c("hr", {
+        staticStyle: { "margin-top": "10px", "margin-bottom": "10px" }
+      }),
+      _vm._v(" "),
+      _c("h4", { staticStyle: { "font-style": "italic" } }, [
+        _vm._v("deadline goes here")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "contents" }, [
+      _c(
+        "h2",
+        { staticStyle: { "font-weight": "bold", "font-size": "22px" } },
+        [_vm._v("Title goes here")]
+      ),
+      _vm._v(" "),
+      _c("hr", {
+        staticStyle: { "margin-top": "10px", "margin-bottom": "10px" }
+      }),
+      _vm._v(" "),
+      _c("h4", { staticStyle: { "font-style": "italic" } }, [
+        _vm._v("deadline goes here")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "contents" }, [
+      _c(
+        "h2",
+        { staticStyle: { "font-weight": "bold", "font-size": "22px" } },
+        [_vm._v("Title goes here")]
+      ),
+      _vm._v(" "),
+      _c("hr", {
+        staticStyle: { "margin-top": "10px", "margin-bottom": "10px" }
+      }),
+      _vm._v(" "),
+      _c("h4", { staticStyle: { "font-style": "italic" } }, [
+        _vm._v("deadline goes here")
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -10316,7 +11177,7 @@ render._withStripped = true
       
       }
     })();
-},{"./views/Login ":"src/views/Login .vue","_css_loader":"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"node_modules/buefy/dist/esm/chunk-40949afc.js":[function(require,module,exports) {
+},{"./views/Login ":"src/views/Login .vue","./../img/infinite-hub.png":[["infinite-hub.4fa86f7c.png","img/infinite-hub.png"],"img/infinite-hub.png"],"./../img/hello.gif":[["hello.726996c0.gif","img/hello.gif"],"img/hello.gif"],"_css_loader":"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"node_modules/buefy/dist/esm/chunk-40949afc.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -26439,6 +27300,7 @@ require("buefy/dist/buefy.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//buefy
 _vue.default.use(_buefy.default);
 
 new _vue.default({
@@ -26474,7 +27336,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51719" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56293" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

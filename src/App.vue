@@ -1,26 +1,35 @@
 <template>
+  <div>
 
-<div>
-    <login v-if="!isLogin" @loginStatus='gantiLogin'></login>
-    <div class="container-fluid">
-      <form action="" class="box" style="padding:5rem;">
+
+       <form action="" class="box" style="padding:5rem;display:flex;flex-direction:column;justify-content:center;margin-right:30%;margin-top:100px;margin-left:30%;margin-bottom:200px">
           <div class="field">
-            <label for="" class="label">Name</label>
+            <label for="" class="label">name</label>
             <div class="control has-icons-left">
-              <input type="username" placeholder="e.g. bobsmith" class="input">
+              <input type="username" placeholder="e.g. Edwin" class="input">
               <span class="icon is-small is-left">
                 <i class="fas fa-user"></i>
               </span>
             </div>
           </div>
 
-          <b-field label="Message"
-              :label-position="Description">
-              <b-input maxlength="200" type="textarea"></b-input>
-          </b-field>
+        <div class="field">
+            <label for="" class="label">Email</label>
+            <div class="control has-icons-left">
+              <input type="text" placeholder="e.g. edwin@gmail.com" class="input">
+              <span class="icon is-small is-left">
+                <i class="fa fa-envelope"></i>
+              </span>
+            </div>
+          </div>
 
-          <div class="field">
-            <label for="" class="label">Portofolio</label>
+         <b-field label="Message"
+            :label-position="Description">
+            <b-input maxlength="200" type="textarea" placeholder="Describe your idea" ></b-input>
+        </b-field>
+
+        <div class="field">
+            <label for="" class="label">References</label>
             <div class="control has-icons-center">
               <section>
                   <b-field>
@@ -42,40 +51,20 @@
                       </b-upload>
                   </b-field>
 
-          <div class="field">
-            <label for="" class="label">Password</label>
-            <div class="control has-icons-left">
-              <input type="password" placeholder="*******" class="input">
-              <span class="icon is-small is-left">
-                <i class="fa fa-lock"></i>
-              </span>
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="" class="label">Phone</label>
-            <div class="control has-icons-left">
-              <input type="phone" placeholder="+62 " class="input">
-              <span class="icon is-small is-left">
-                <i class="fas fa-mobile-alt"></i>
-              </span>
-            </div>
-          </div>
-
-          <div class="tags">
-              <span v-for="(file, index) in dropFiles"
-                  :key="index"
-                  class="tag is-primary" >
-                  {{file.name}}
-                  <button class="delete is-small"
-                      type="button"
-                      @click="deleteDropFile(index)">
-                  </button>
-              </span>
-          </div>
+                  <div class="tags">
+                      <span v-for="(file, index) in dropFiles"
+                          :key="index"
+                          class="tag is-primary" >
+                          {{file.name}}
+                          <button class="delete is-small"
+                              type="button"
+                              @click="deleteDropFile(index)">
+                          </button>
+                      </span>
+                  </div>
                     <template>
                         <section>
-                            <b-field label="what is your speciality">
+                            <b-field label="Insert some tags">
                                 <b-taginput
                                     v-model="tags"
                                     ellipsis
@@ -89,21 +78,285 @@
             </div>
           </div>
 
+          <div class="field">
+            <label for="" class="label">Deadline</label>
+            <div class="control has-icons-left">
+              <input type="text" placeholder="e.g. bobsmith@gmail.com" class="input">
+              <span class="icon is-small is-left">
+                <i class="fa fa-envelope"></i>
+              </span>
+            </div>
+          </div>
+
+
+      
           
 
-          <div class="field" style="display:flex; justify-content:space-between; margin-right:100px; margin-left:100px">
-            <button class="button is-success">
-              Register
-            </button>
+          
+
+          <div class="field" style="display:flex; justify-content:space-between;">
              <button type="submit" class="button is-success">
-            Login
+            Submit
             </button>
           </div>
         </form>
-    </div>
-</div>
-    
+
+
+    <!--alfred--><!--alfred--><!--alfred--><!--alfred--><!--alfred--><!--alfred--><!--alfred--><!--alfred-->
+      <div class="home" style="display:none">
+        
+      <div>
+        <login v-if="!isLogin" @loginStatus='gantiLogin'></login>
+      </div>
+
+      <!--navbar-->
+      <b-navbar id="navbar-home" style="height:120px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.05);background:#f8f8f8;">
+        <template slot="brand">
+        </template>
+        <template slot="start">
+          <b-navbar-item style="margin-left:200px" tag="router-link" :to="{ path: '/' }">
+            <img src="./../img/infinite-hub.png" style="height:2rim; height:auto;" alt="Lightweight UI components for Vue.js based on Bulma"/>
+          </b-navbar-item>
+          <b-navbar-item href="#">Infinite Fox</b-navbar-item>
+          <b-navbar-item href="#">Post Job</b-navbar-item>
+          <b-navbar-dropdown label="Info">
+            <b-navbar-item href="#">About</b-navbar-item>
+            <b-navbar-item href="#">Contact</b-navbar-item>
+          </b-navbar-dropdown>
+        </template>
+
+        <template slot="end">
+          <b-navbar-item tag="div">
+            <b-button style='margin-right:200px' type="is-info">logout</b-button>
+          </b-navbar-item>
+        </template>
+      </b-navbar>
+      <!--end navbar -->
+      <!--content-->
+
+      <!--judul-->
+      <div class="main-judul" style="display:flex;justify-content:center;margin-bottom:75px;margin-top:50px;">
+        <center><img src="./../img/hello.gif" alt="Trulli" width="500" height="333"></center>
+        <h1>One stop solution</h1>
+        <h1 style="font-size:24px;padding-top:-300px; font-style: italic;" >for you to hire or to be hired</h1>
+        
+      </div>
+      <!--end judul -->
+
+      <!--listGambar-->
+      <div class="container" id="image-container">
+      
+
+        <div class="container" id="detail-image">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <a @click="isCardModalActive3 = true" href="#">
+                  <img
+                    src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif"
+                    alt="Placeholder image"
+                  />
+                </a>
+              </figure>
+              <div class="contents">
+                <h2 style="font-weight:bold; font-size:22px">Title goes here</h2>
+                <hr style="margin-top:10px; margin-bottom:10px">
+                <h4 style="font-style:italic">deadline goes here</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container" id="detail-image">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <a @click="isCardModalActive3 = true" href="#">
+                  <img
+                    src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif"
+                    alt="Placeholder image"
+                  />
+                </a>
+              </figure>
+              <div class="contents">
+                <h2 style="font-weight:bold; font-size:22px">Title goes here</h2>
+                <hr style="margin-top:10px; margin-bottom:10px">
+                <h4 style="font-style:italic">deadline goes here</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container" id="detail-image">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <a @click="isCardModalActive3 = true" href="#">
+                  <img
+                    src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif"
+                    alt="Placeholder image"
+                  />
+                </a>
+              </figure>
+              <div class="contents">
+                <h2 style="font-weight:bold; font-size:22px">Title goes here</h2>
+                <hr style="margin-top:10px; margin-bottom:10px">
+                <h4 style="font-style:italic">deadline goes here</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container" id="detail-image">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <a @click="isCardModalActive3 = true" href="#">
+                  <img
+                    src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif"
+                    alt="Placeholder image"
+                  />
+                </a>
+              </figure>
+              <div class="contents">
+                <h2 style="font-weight:bold; font-size:22px">Title goes here</h2>
+                <hr style="margin-top:10px; margin-bottom:10px">
+                <h4 style="font-style:italic">deadline goes here</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      
+
+
+        
+
+
+
+        <b-modal :active.sync="isCardModalActive3" :width="640" scroll="keep">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img
+                  src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif"
+                  alt="Image"
+                />
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left"></div>
+                <div class="media-content" style="display:flex; justify-content:center;flex-direction:column;">
+                    <div class="content-text">
+
+                        <h3 style="font-size:36px">Title goes here</h3>
+
+                        <br>
+                        <hr>    
+                        <br>
+
+                        <h3 style="font-style:italic">description :</h3>
+                        <br>
+
+                        <h3>
+                          goes here, and there are a lots of texts gonna be here sdfksldfjlksdjklskdsdgsd
+                          sdgsjdnjsdnfsndjfnskdnfkjsdnfjksdffsadkjnkadg sdfksldfjlksdjklskdsdgsd
+                          sdgsjdnjsdnfsndjfnskdnfkjsdnfjksdffsadkjnkadg
+                          sdfksldfjlksdjklskdsdgsd
+                          sdgsjdnjsdnfsndjfnskdnfkjsdnfjksdffsadkjnkadg
+                        </h3>
+                          
+                        <br>
+                        <hr>    
+                        <br>
+                        
+                        <i class="fas fa-user-tie"></i><a style="margin-right:25px">  Owner  </a><i class="fas fa-mobile-alt"></i> Phone <a style="margin-right:25px"> </a><i class="far fa-envelope"></i>  email goes here
+                        
+                        
+                        <br>
+                        <hr>    
+                        <br>
+                        <br>
+
+                        <small>Deadline : 11:09 PM - 1 Jan 2016</small>
+
+                        <br>
+                        <hr>    
+                        <br>
+                        <br>
+                          <template>
+                              <b-taglist>
+                                  <b-tag type="is-info">First</b-tag>
+                                  <b-tag type="is-info">Second</b-tag>
+                                  <b-tag type="is-info">Third</b-tag>
+                                  <b-tag type="is-info">Fourth</b-tag>
+                                  <b-tag type="is-info">Fifth</b-tag>
+                              </b-taglist>
+                          </template>
+
+                        <br>
+                        <hr>    
+                        <br>
+                        <br>
+                        
+                        
+                        <h5><i class="fas fa-user-friends" style="margin-top:20px;margin-bottom:20px"></i> people assigned</h5>
+
+                        <h5>requested by  5 users<h5>
+                          
+                        <br>
+                        <hr>    
+                        <br>
+                        <br>
+
+                          <i class="far fa-bookmark"> taken</i>
+
+                        <br>
+                        <hr>    
+                        <br>
+                        <br>
+
+
+                        <h3 style="font-style:italic">references :</h3>
+
+                        <br>
+                        <hr>    
+                        <br>
+                        <br>
+                        
+
+                    </div>
+
+
+                  <div class="card-image">
+                    <figure class="image is-4by3">
+                      <img
+                        src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif"
+                        alt="Image"
+                      />
+                    </figure>
+                  </div>
+                  <div class="card-image">
+                    <figure class="image is-4by3">
+                      <img
+                        src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif"
+                        alt="Image"
+                      />
+                    </figure>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </b-modal>
+        <!--end modal-->
+      </div>
+   </div> <!--end content-->
+  </div>
 </template>
+
+
 <script>
 
   import login from './views/Login '
@@ -111,11 +364,14 @@
   export default {
   data() {
     return {
+      isImageModalActive1: false,
+      isCardModalActive2: false,
+      isCardModalActive3: false,
         tags:[],
         dropFiles: [],
         isLogin : false,
-      }
-    },
+    };
+  },
   components:{
     login
   },
@@ -137,14 +393,94 @@
 </script>
 
 <style scoped>
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
 
 .container-fluid {
     width: 100%;
     padding-right: 20%;
     padding-left: 20%;
     margin-top: 10%;
-    m: ;
-    margin-bottom: 10%;
+    
+}
+#navbar-home {
+  background: #e0eafc; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #cfdef3,
+    #e0eafc
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #cfdef3,
+    #e0eafc
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+h1,
+#judul {
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom:10px;
+  font-weight: 500px;
+  color: #353535;
+}
+
+.main-judul p {
+  margin-bottom: 80px;
+}
+
+.main-judul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#image-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#detail-image {
+  width: 300px;
+  margin: 2px;
+  box-shadow: 10px 10px 43px -22px rgba(0,0,0,0.53);
+  animation: drop 2s ease;
+  margin: 20px
+}
+
+#detail-image:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.contents{
+  margin-left:40px;
+  margin-top:20px;
+  margin-bottom:20px;
+  margin-right:40px;
+}
+
+@keyframes drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 
 .columns {
