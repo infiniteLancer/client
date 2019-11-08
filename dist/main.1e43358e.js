@@ -14440,11 +14440,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
 var _default = {
   name: "Login",
   data: function data() {
     return {
-      page: 'login'
+      page: 'login',
+      show: true
     };
   },
   methods: {
@@ -14453,6 +14460,7 @@ var _default = {
     },
     gantiPage: function gantiPage(page) {
       console.log(page, 'ini dari page');
+      localStorage.setItem('token');
       this.page = page;
     }
   },
@@ -14475,71 +14483,90 @@ exports.default = _default;
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("section", { staticClass: "hero is-primary is-fullheight" }, [
-      _vm.page == "login"
-        ? _c("div", { staticClass: "hero-body" }, [
-            _c("div", { staticClass: "container" }, [
-              _c("div", { staticClass: "columns is-centered" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "column is-5-tablet is-4-desktop is-3-widescreen",
-                    staticStyle: {
-                      display: "flex",
-                      "justify-content": "space-between"
-                    }
-                  },
-                  [
-                    _vm._m(0),
-                    _vm._v(" "),
-                    _vm.page == "login"
-                      ? _c("loginPage", {
+    _c(
+      "section",
+      {
+        staticClass: "hero is-primary is-fullheight",
+        staticStyle: {
+          "background-image": "url('/login-page.713b2482.jpg')"
+        }
+      },
+      [
+        _vm.page == "login"
+          ? _c("div", { staticClass: "hero-body" }, [
+              _c("div", { staticClass: "container" }, [
+                _c("div", { staticClass: "columns is-centered" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "column is-5-tablet is-4-desktop is-4-widescreen",
+                      staticStyle: {
+                        display: "flex",
+                        "justify-content": "space-between"
+                      }
+                    },
+                    [
+                      _vm._m(0),
+                      _vm._v(" "),
+                      _vm.page == "login"
+                        ? _c("loginPage", {
+                            on: {
+                              loginStatus: _vm.gantiLogin,
+                              pageStatus: _vm.gantiPage
+                            }
+                          })
+                        : _vm._e()
+                    ],
+                    1
+                  )
+                ])
+              ])
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.page == "register"
+          ? _c(
+              "div",
+              {
+                staticClass: "hero-body",
+                staticStyle: {
+                  "background-image":
+                    "url('/register-page.2b045d83.jpg')"
+                }
+              },
+              [
+                _c("div", { staticClass: "container" }, [
+                  _c("div", { staticClass: "columns is-centered" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "column is-5-tablet is-4-desktop is-3-widescreen",
+                        staticStyle: {
+                          display: "flex",
+                          "justify-content": "space-between"
+                        }
+                      },
+                      [
+                        _vm._m(1),
+                        _vm._v(" "),
+                        _c("registerPage", {
                           on: {
                             loginStatus: _vm.gantiLogin,
                             pageStatus: _vm.gantiPage
                           }
                         })
-                      : _vm._e()
-                  ],
-                  1
-                )
-              ])
-            ])
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.page == "register"
-        ? _c("div", { staticClass: "hero-body" }, [
-            _c("div", { staticClass: "container" }, [
-              _c("div", { staticClass: "columns is-centered" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "column is-5-tablet is-4-desktop is-3-widescreen",
-                    staticStyle: {
-                      display: "flex",
-                      "justify-content": "space-between"
-                    }
-                  },
-                  [
-                    _vm._m(1),
-                    _vm._v(" "),
-                    _c("registerPage", {
-                      on: {
-                        loginStatus: _vm.gantiLogin,
-                        pageStatus: _vm.gantiPage
-                      }
-                    })
-                  ],
-                  1
-                )
-              ])
-            ])
-          ])
-        : _vm._e()
-    ])
+                      ],
+                      1
+                    )
+                  ])
+                ])
+              ]
+            )
+          : _vm._e()
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -14564,14 +14591,18 @@ var staticRenderFns = [
             {
               staticStyle: {
                 "text-align": "right",
+                color: "white",
                 "margin-right": "100px",
+                "margin-left": "-200px",
                 "font-size": "72px",
                 "text-shadow": "3px 2px 7px rgba(0,0,0,0.51)"
               }
             },
             [_vm._v("Tired of unmanageable projects?")]
           )
-        ])
+        ]),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "demo" } })
       ]
     )
   },
@@ -14596,8 +14627,10 @@ var staticRenderFns = [
             {
               staticStyle: {
                 "text-align": "right",
+                color: "white",
                 "margin-right": "100px",
                 "font-size": "72px",
+                "margin-left": "-500px",
                 "text-shadow": "3px 2px 7px rgba(0,0,0,0.51)",
                 width: "500px"
               }
@@ -14641,15 +14674,17 @@ render._withStripped = true
       
       }
     })();
+<<<<<<< HEAD
+},{"../components/Login-page":"src/components/Login-page.vue","../components/Register-page":"src/components/Register-page.vue","./../../img/login-page.jpg":[["login-page.713b2482.jpg","img/login-page.jpg"],"img/login-page.jpg"],"_css_loader":"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js","./../../img/register-page.jpg":[["register-page.2b045d83.jpg","img/register-page.jpg"],"img/register-page.jpg"],"vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/Home-page.vue":[function(require,module,exports) {
+=======
 },{"../components/Login-page":"src/components/Login-page.vue","../components/Register-page":"src/components/Register-page.vue","_css_loader":"../../../../../../.nvm/versions/node/v10.16.3/lib/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/Home-page.vue":[function(require,module,exports) {
+>>>>>>> development
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-//
-//
 //
 //
 //
@@ -14912,7 +14947,7 @@ exports.default = _default;
           {
             attrs: {
               active: _vm.isCardModalActive,
-              width: 640,
+              width: 1000,
               scroll: "keep"
             },
             on: {
@@ -15093,10 +15128,6 @@ exports.default = _default;
                               _vm._v(" "),
                               _c("br"),
                               _vm._v(" "),
-                              _c("hr"),
-                              _vm._v(" "),
-                              _c("br"),
-                              _vm._v(" "),
                               _c("br")
                             ])
                           ])
@@ -15105,7 +15136,7 @@ exports.default = _default;
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "card-image" }, [
-                        _c("figure", { staticClass: "image is-4by3" }, [
+                        _c("figure", { staticClass: "image is-4by2" }, [
                           _c("img", {
                             attrs: {
                               src:
@@ -15117,7 +15148,7 @@ exports.default = _default;
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "card-image" }, [
-                        _c("figure", { staticClass: "image is-4by3" }, [
+                        _c("figure", { staticClass: "image is-4by2" }, [
                           _c("img", {
                             attrs: {
                               src:
@@ -15721,7 +15752,11 @@ render._withStripped = true
       
       }
     })();
+<<<<<<< HEAD
+},{"_css_loader":"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/My-list.vue":[function(require,module,exports) {
+=======
 },{"sweetalert2":"node_modules/sweetalert2/dist/sweetalert2.all.js","../../apis/server":"apis/server.js","_css_loader":"../../../../../../.nvm/versions/node/v10.16.3/lib/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/Navbar.vue":[function(require,module,exports) {
+>>>>>>> development
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -15729,7 +15764,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _CreateJobs = _interopRequireDefault(require("../components/Create-jobs"));
+var _MainContent = _interopRequireDefault(require("../views/MainContent"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15758,6 +15793,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+<<<<<<< HEAD
+=======
 var _default = {
   name: "Navbar",
   data: function data() {
@@ -15931,7 +15968,1050 @@ var _Navbar = _interopRequireDefault(require("../components/Navbar"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+>>>>>>> development
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: 'App',
+  data: function data() {
+    return {
+      isCardModalActive: false
+    };
+  },
+  components: {
+    MainContent: _MainContent.default
+  }
+};
+exports.default = _default;
+        var $3f939b = exports.default || module.exports;
+      
+      if (typeof $3f939b === 'function') {
+        $3f939b = $3f939b.options;
+      }
+    
+        /* template */
+        Object.assign($3f939b, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("br"),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c(
+      "h1",
+      {
+        staticStyle: {
+          "font-size": "36px",
+          "padding-top": "-300px",
+          "font-style": "italic"
+        }
+      },
+      [_vm._v("List of projects")]
+    ),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("hr", { staticStyle: { "margin-right": "45%", "margin-left": "45%" } }),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "container", attrs: { id: "image-container" } },
+      [
+        _c("div", { staticClass: "container", attrs: { id: "detail-image" } }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-image" }, [
+              _c("figure", { staticClass: "image is-4by3" }, [
+                _c(
+                  "a",
+                  {
+                    attrs: { href: "#" },
+                    on: {
+                      click: function($event) {
+                        _vm.isCardModalActive = true
+                      }
+                    }
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src:
+                          "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif",
+                        alt: "Placeholder image"
+                      }
+                    })
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _vm._m(0)
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "container", attrs: { id: "detail-image" } }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-image" }, [
+              _c("figure", { staticClass: "image is-4by3" }, [
+                _c(
+                  "a",
+                  {
+                    attrs: { href: "#" },
+                    on: {
+                      click: function($event) {
+                        _vm.isCardModalActive = true
+                      }
+                    }
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src:
+                          "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif",
+                        alt: "Placeholder image"
+                      }
+                    })
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _vm._m(1)
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "container", attrs: { id: "detail-image" } }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-image" }, [
+              _c("figure", { staticClass: "image is-4by3" }, [
+                _c(
+                  "a",
+                  {
+                    attrs: { href: "#" },
+                    on: {
+                      click: function($event) {
+                        _vm.isCardModalActive = true
+                      }
+                    }
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src:
+                          "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif",
+                        alt: "Placeholder image"
+                      }
+                    })
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _vm._m(2)
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "container", attrs: { id: "detail-image" } }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-image" }, [
+              _c("figure", { staticClass: "image is-4by3" }, [
+                _c(
+                  "a",
+                  {
+                    attrs: { href: "#" },
+                    on: {
+                      click: function($event) {
+                        _vm.isCardModalActive = true
+                      }
+                    }
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src:
+                          "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif",
+                        alt: "Placeholder image"
+                      }
+                    })
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _vm._m(3)
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "container", attrs: { id: "detail-image" } }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-image" }, [
+              _c("figure", { staticClass: "image is-4by3" }, [
+                _c(
+                  "a",
+                  {
+                    attrs: { href: "#" },
+                    on: {
+                      click: function($event) {
+                        _vm.isCardModalActive = true
+                      }
+                    }
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src:
+                          "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif",
+                        alt: "Placeholder image"
+                      }
+                    })
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _vm._m(4)
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "b-modal",
+          {
+            attrs: {
+              active: _vm.isCardModalActive,
+              width: 1000,
+              scroll: "keep"
+            },
+            on: {
+              "update:active": function($event) {
+                _vm.isCardModalActive = $event
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card-image" }, [
+                _c("figure", { staticClass: "image is-4by3" }, [
+                  _c("img", {
+                    attrs: {
+                      src:
+                        "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif",
+                      alt: "Image"
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-content" }, [
+                _c("div", { staticClass: "media" }, [
+                  _c("div", { staticClass: "media-left" }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "media-content",
+                      staticStyle: {
+                        display: "flex",
+                        "justify-content": "center",
+                        "flex-direction": "column"
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "content-text" },
+                        [
+                          _c("h3", { staticStyle: { "font-size": "36px" } }, [
+                            _vm._v("Title goes here")
+                          ]),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("hr"),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c(
+                            "h3",
+                            { staticStyle: { "font-style": "italic" } },
+                            [_vm._v("description :")]
+                          ),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("h3", [
+                            _vm._v(
+                              "\n                      goes here, and there are a lots of texts gonna be here sdfksldfjlksdjklskdsdgsd\n                      sdgsjdnjsdnfsndjfnskdnfkjsdnfjksdffsadkjnkadg sdfksldfjlksdjklskdsdgsd\n                      sdgsjdnjsdnfsndjfnskdnfkjsdnfjksdffsadkjnkadg\n                      sdfksldfjlksdjklskdsdgsd\n                      sdgsjdnjsdnfsndjfnskdnfkjsdnfjksdffsadkjnkadg\n                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("hr"),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "fas fa-user-tie" }),
+                          _c("a", { staticStyle: { "margin-right": "25px" } }, [
+                            _vm._v("  Owner  ")
+                          ]),
+                          _c("i", { staticClass: "fas fa-mobile-alt" }),
+                          _vm._v(" Phone "),
+                          _c("a", { staticStyle: { "margin-right": "25px" } }),
+                          _c("i", { staticClass: "far fa-envelope" }),
+                          _vm._v(
+                            "  email goes here\n                    \n                    \n                    "
+                          ),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("hr"),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("small", [
+                            _vm._v("Deadline : 11:09 PM - 1 Jan 2016")
+                          ]),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("hr"),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          [
+                            _c(
+                              "b-taglist",
+                              [
+                                _c("b-tag", { attrs: { type: "is-info" } }, [
+                                  _vm._v("First")
+                                ]),
+                                _vm._v(" "),
+                                _c("b-tag", { attrs: { type: "is-info" } }, [
+                                  _vm._v("Second")
+                                ]),
+                                _vm._v(" "),
+                                _c("b-tag", { attrs: { type: "is-info" } }, [
+                                  _vm._v("Third")
+                                ]),
+                                _vm._v(" "),
+                                _c("b-tag", { attrs: { type: "is-info" } }, [
+                                  _vm._v("Fourth")
+                                ]),
+                                _vm._v(" "),
+                                _c("b-tag", { attrs: { type: "is-info" } }, [
+                                  _vm._v("Fifth")
+                                ])
+                              ],
+                              1
+                            )
+                          ],
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("hr"),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("h5", [
+                            _c("i", {
+                              staticClass: "fas fa-user-friends",
+                              staticStyle: {
+                                "margin-top": "20px",
+                                "margin-bottom": "20px"
+                              }
+                            }),
+                            _vm._v(" people assigned")
+                          ]),
+                          _vm._v(" "),
+                          _c("h5", [
+                            _vm._v("requested by  5 users"),
+                            _c("h5", [
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("hr"),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("i", { staticClass: "far fa-bookmark" }, [
+                                _vm._v(" taken")
+                              ]),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("hr"),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c(
+                                "h3",
+                                { staticStyle: { "font-style": "italic" } },
+                                [_vm._v("references :")]
+                              ),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("br")
+                            ])
+                          ])
+                        ],
+                        2
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "card-image" }, [
+                        _c("figure", { staticClass: "image is-4by2" }, [
+                          _c("img", {
+                            attrs: {
+                              src:
+                                "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif",
+                              alt: "Image"
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "card-image" }, [
+                        _c("figure", { staticClass: "image is-4by2" }, [
+                          _c("img", {
+                            attrs: {
+                              src:
+                                "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif",
+                              alt: "Image"
+                            }
+                          })
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ]
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "contents" }, [
+      _c(
+        "h2",
+        { staticStyle: { "font-weight": "bold", "font-size": "22px" } },
+        [_vm._v("Title goes here")]
+      ),
+      _vm._v(" "),
+      _c("hr", {
+        staticStyle: { "margin-top": "10px", "margin-bottom": "10px" }
+      }),
+      _vm._v(" "),
+      _c("h4", { staticStyle: { "font-style": "italic" } }, [
+        _vm._v("deadline goes here")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "contents" }, [
+      _c(
+        "h2",
+        { staticStyle: { "font-weight": "bold", "font-size": "22px" } },
+        [_vm._v("Title goes here")]
+      ),
+      _vm._v(" "),
+      _c("hr", {
+        staticStyle: { "margin-top": "10px", "margin-bottom": "10px" }
+      }),
+      _vm._v(" "),
+      _c("h4", { staticStyle: { "font-style": "italic" } }, [
+        _vm._v("deadline goes here")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "contents" }, [
+      _c(
+        "h2",
+        { staticStyle: { "font-weight": "bold", "font-size": "22px" } },
+        [_vm._v("Title goes here")]
+      ),
+      _vm._v(" "),
+      _c("hr", {
+        staticStyle: { "margin-top": "10px", "margin-bottom": "10px" }
+      }),
+      _vm._v(" "),
+      _c("h4", { staticStyle: { "font-style": "italic" } }, [
+        _vm._v("deadline goes here")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "contents" }, [
+      _c(
+        "h2",
+        { staticStyle: { "font-weight": "bold", "font-size": "22px" } },
+        [_vm._v("Title goes here")]
+      ),
+      _vm._v(" "),
+      _c("hr", {
+        staticStyle: { "margin-top": "10px", "margin-bottom": "10px" }
+      }),
+      _vm._v(" "),
+      _c("h4", { staticStyle: { "font-style": "italic" } }, [
+        _vm._v("deadline goes here")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "contents" }, [
+      _c(
+        "h2",
+        { staticStyle: { "font-weight": "bold", "font-size": "22px" } },
+        [_vm._v("Title goes here")]
+      ),
+      _vm._v(" "),
+      _c("hr", {
+        staticStyle: { "margin-top": "10px", "margin-bottom": "10px" }
+      }),
+      _vm._v(" "),
+      _c("h4", { staticStyle: { "font-style": "italic" } }, [
+        _vm._v("deadline goes here")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$3f939b', $3f939b);
+          } else {
+            api.reload('$3f939b', $3f939b);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"../views/MainContent":"src/views/MainContent.vue","_css_loader":"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/Navbar.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _CreateJobs = _interopRequireDefault(require("../components/Create-jobs"));
+
+var _MyList = _interopRequireDefault(require("../components/My-list"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: "Navbar",
+  data: function data() {
+    return {
+      isCardModalActive: false
+    };
+  },
+  methods: {
+    generatePage: function generatePage(page) {
+      this.$emit('changePage', page);
+    },
+    removeLocalStorage: function removeLocalStorage() {
+      localStorage.clear();
+      this.$emit('loginStatus', false);
+    }
+  },
+  components: {
+    CreateJob: _CreateJobs.default,
+    MyList: _MyList.default
+  }
+};
+exports.default = _default;
+        var $770a6b = exports.default || module.exports;
+      
+      if (typeof $770a6b === 'function') {
+        $770a6b = $770a6b.options;
+      }
+    
+        /* template */
+        Object.assign($770a6b, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "b-navbar",
+        {
+          staticStyle: {
+            height: "120px",
+            "box-shadow":
+              "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.05)",
+            background: "#f8f8f8"
+          },
+          attrs: { id: "navbar-home" }
+        },
+        [
+          _c("template", { slot: "brand" }),
+          _vm._v(" "),
+          _c(
+            "template",
+            { slot: "start" },
+            [
+              _c(
+                "b-navbar-item",
+                {
+                  staticStyle: {
+                    "font-size": "34px",
+                    "font-weigth": "bold",
+                    "margin-right": "30px"
+                  },
+                  attrs: { href: "#" },
+                  on: {
+                    click: function($event) {
+                      return _vm.generatePage("home")
+                    }
+                  }
+                },
+                [_vm._v("Infinite Hub")]
+              ),
+              _vm._v(" "),
+              _c(
+                "b-navbar-item",
+                {
+                  staticStyle: { "font-size": "24px", "margin-right": "30px" },
+                  attrs: { href: "#" },
+                  on: {
+                    click: function($event) {
+                      _vm.isCardModalActive = true
+                    }
+                  }
+                },
+                [_vm._v("Post Job")]
+              ),
+              _vm._v(" "),
+              _c(
+                "b-navbar-item",
+                {
+                  staticStyle: { "font-size": "24px", "margin-right": "30px" },
+                  attrs: { href: "#" },
+                  on: {
+                    click: function($event) {
+                      return _vm.generatePage("myList")
+                    }
+                  }
+                },
+                [_vm._v("My List")]
+              ),
+              _vm._v(" "),
+              _c("b-navbar-item", { attrs: { tag: "div" } })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "template",
+            { slot: "end" },
+            [
+              _c("b-navbar-item", { attrs: { tag: "div" } }, [
+                _c("div", { staticClass: "buttons" }, [
+                  _c("a", { staticClass: "button is-info" }, [
+                    _c(
+                      "strong",
+                      {
+                        staticStyle: { color: "white" },
+                        on: {
+                          click: function($event) {
+                            return _vm.removeLocalStorage()
+                          }
+                        }
+                      },
+                      [_vm._v("Logout")]
+                    )
+                  ])
+                ])
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } })
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c(
+        "b-modal",
+        {
+          attrs: { active: _vm.isCardModalActive, width: 1000, scroll: "keep" },
+          on: {
+            "update:active": function($event) {
+              _vm.isCardModalActive = $event
+            }
+          }
+        },
+        [_c("CreateJob")],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$770a6b', $770a6b);
+          } else {
+            api.reload('$770a6b', $770a6b);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"../components/Create-jobs":"src/components/Create-jobs.vue","../components/My-list":"src/components/My-list.vue","_css_loader":"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/views/MainContent.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _Login = _interopRequireDefault(require("./Login "));
+
+var _HomePage = _interopRequireDefault(require("../components/Home-page"));
+
+var _CreateJobs = _interopRequireDefault(require("../components/Create-jobs"));
+
+var _Navbar = _interopRequireDefault(require("../components/Navbar"));
+
+var _MyList = _interopRequireDefault(require("../components/My-list"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 //
 //
 //
@@ -15953,19 +17033,15 @@ var _default = {
   data: function data() {
     return {
       page: 'home',
-      isImageModalActive1: false,
-      isCardModalActive2: false,
-      isCardModalActive3: false,
-      tags: [],
-      dropFiles: [],
-      isLogin: false
+      isLogin: true
     };
   },
   components: {
     Login: _Login.default,
     HomePage: _HomePage.default,
     CreateJob: _CreateJobs.default,
-    Navbar: _Navbar.default
+    Navbar: _Navbar.default,
+    MyList: _MyList.default
   },
   methods: {
     deleteDropFile: function deleteDropFile(index) {
@@ -15998,28 +17074,27 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "home" },
-    [
-      _c("Navbar", { on: { changePage: _vm.changePage } }),
-      _vm._v(" "),
-      _vm.page === "home" ? _c("HomePage") : _vm._e(),
-      _vm._v(" "),
-      _vm.page === "create" ? _c("CreateJob") : _vm._e(),
-      _vm._v(" "),
-      _c(
-        "div",
-        [
-          !_vm.isLogin
-            ? _c("login", { on: { loginStatus: _vm.gantiLogin } })
-            : _vm._e()
-        ],
-        1
-      )
-    ],
-    1
-  )
+  return _c("div", { staticClass: "home" }, [
+    _c(
+      "div",
+      [
+        _vm.isLogin == true
+          ? _c("Navbar", {
+              on: { changePage: _vm.changePage, loginStatus: _vm.gantiLogin }
+            })
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.page == "myList" && _vm.isLogin == true ? _c("MyList") : _vm._e(),
+        _vm._v(" "),
+        _vm.isLogin == true ? _c("HomePage") : _vm._e(),
+        _vm._v(" "),
+        !_vm.isLogin
+          ? _c("login", { on: { loginStatus: _vm.gantiLogin } })
+          : _vm._e()
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -16054,7 +17129,11 @@ render._withStripped = true
       
       }
     })();
+<<<<<<< HEAD
+},{"./Login ":"src/views/Login .vue","../components/Home-page":"src/components/Home-page.vue","../components/Create-jobs":"src/components/Create-jobs.vue","../components/Navbar":"src/components/Navbar.vue","../components/My-list":"src/components/My-list.vue","_css_loader":"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/App.vue":[function(require,module,exports) {
+=======
 },{"./Login ":"src/views/Login .vue","../components/Home-page":"src/components/Home-page.vue","../components/Create-jobs":"src/components/Create-jobs.vue","../components/Navbar":"src/components/Navbar.vue","_css_loader":"../../../../../../.nvm/versions/node/v10.16.3/lib/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/App.vue":[function(require,module,exports) {
+>>>>>>> development
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -32285,7 +33364,11 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
+<<<<<<< HEAD
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56450" + '/');
+=======
   var ws = new WebSocket(protocol + '://' + hostname + ':' + "35797" + '/');
+>>>>>>> development
 
   ws.onmessage = function (event) {
     checkedAssets = {};
