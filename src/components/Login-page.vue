@@ -68,11 +68,11 @@ export default {
                 .then(({data}) => {
                     localStorage.setItem('token', data.token)
                     localStorage.setItem('username', data.username)
-                    this.Toast.fire({
-						icon: 'success',
-						title: 'Login successfully'
-					})
-                    this.$emit('loginStatus',true)
+                    this.$emit('loginStatus',true)  
+                    // this.Toast.fire({
+					// 	icon: 'success',
+					// 	title: 'Login successfully'
+					// })
                 })
                 .catch(err => {
                     Swal.fire({
