@@ -32,6 +32,8 @@
                 <h2 style="font-weight:bold; font-size:22px">Title goes here</h2>
                 <hr style="margin-top:10px; margin-bottom:10px">
                 <h4 style="font-style:italic">deadline goes here</h4>
+                
+                <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="large" style="margin-top:30px;"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Bagikan</a></div>
               </div>
             </div>
           </div>
@@ -160,14 +162,18 @@
 
 <script>
 export default {
+  
     name: 'HomePage',
     data(){
         
         return {
+            detailFb: false,
             isCardModalActive : false    
         }
+    },
+    methods:{
+     
     }
-
 }
 </script>
 
