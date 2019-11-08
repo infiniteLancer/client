@@ -1,5 +1,5 @@
 <template>
-   <form action="" class="box" style="padding:5rem;display:flex;flex-direction:column;justify-content:center;">
+   <form @submit="createNewJob" class="box" style="padding:5rem;display:flex;flex-direction:column;justify-content:center;">
         <div class="field">
         <label for="" class="label">Name</label>
         <div class="control has-icons-left">
@@ -10,8 +10,7 @@
         </div>
         </div>
 
-    <b-field label="Description"
-        :label-position="Description">
+    <b-field label="Description">
         <b-input v-model="description" maxlength="200" type="textarea" placeholder="Describe your projects details" ></b-input>
     </b-field>
 
@@ -85,29 +84,86 @@
 
         </div>
 
-        <div class="field" style="display:flex; justify-content:space-between; margin-right:100px; margin-left:100px">
-        <button class="button is-success">
-            Register
-        </button>
+        <div class="field" style="display:flex; justify-content:center; margin-right:100px;">
             <button type="submit" class="button is-success">
-        Login
-        </button>
+                Create Job
+            </button>
         </div>
     </form>
 </template>
 
 <script>
+import Swal from 'sweetalert2'
+import axios from '../../apis/server'
+
 export default {
     name: 'CreateJob',
     data(){
         return {
-            title: '',
-            email:'',
+            name: '',
             description:'',
-            dropFiles:'',
-            tags:'',
+            dropFiles:[],
+            tags:[],
             deadline:'',
-            phone:''
+            phone:'',
+            Toast : Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
+    },
+    methods: {
+        deleteDropFile(index) {
+            this.dropFiles.splice(index, 1)
+        },
+        createNewJob(){
+            Swal.showLoading()
+            
+            let fd = new FormData()
+            this.dropFiles.forEach(image => {
+                fd.append('imgUrl', image)
+            });
+            this.tags.forEach(skill => {
+                fd.append('skill', skill)
+            })
+            fd.set('name', this.name)
+            fd.set('description', this.description)
+            fd.set('phone', this.phone)
+            fd.set('deadline', this.deadline)
+
+            axios({
+                method: 'post',
+                url: '/vacancy',
+                data: fd,
+                headers: {
+                    token: localStorage.getItem('token')
+                }
+            })
+                .then(({data}) => {
+                    this.name = ''
+                    this.description = ''
+                    this.skill = ''
+                    this.phone = ''
+                    this.dropFiles = []
+                    this.tags = []
+                    
+                    Swal.close()
+                    this.$emit('closeModal', false)
+                    this.Toast.fire({
+                        icon: 'success',
+                        title: 'Create Job successfully'
+                    })
+                })
+                .catch(err => {
+                    Swal.close()
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Sorry,',
+                        text: err.response.data.errors.join(', ')
+                    })
+                })
         }
     }
 

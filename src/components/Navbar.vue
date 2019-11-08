@@ -16,7 +16,7 @@
 
     </b-navbar>
      <b-modal :active.sync="isCardModalActive" :width="1000" scroll="keep">
-    <CreateJob></CreateJob>
+    <CreateJob @closeModal="closeModal"></CreateJob>
     </b-modal>
 
 </div>
@@ -37,6 +37,9 @@ export default {
     methods: {
         generatePage(page){
             this.$emit('changePage',page)
+        },
+        closeModal(status){
+            this.isCardModalActive = status
         }
     },
     components:{
