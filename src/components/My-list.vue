@@ -1,23 +1,103 @@
 <template>
      <div>
        
-      <!--end navbar -->
-      <!--content-->
-
-      <!--judul-->
-      <div class="main-judul" style="display:flex;justify-content:center;margin-bottom:75px;margin-top:50px;">
-        <center><img src="../../img/hello.gif" alt="Trulli" width="500" height="333"></center>
-        <h1>One stop solution</h1>
-        <h1 style="font-size:24px;padding-top:-300px; font-style: italic;" >for you to hire or to be hired</h1>
+     
+        <br>
+        <br>
+        <h1 style="font-size:36px;padding-top:-300px; font-style: italic;" >List of projects</h1>
+        <br>
+        <hr style="margin-right:45%;margin-left:45%">
+        <br>
+        <br>
         
-      </div>
       <!--end judul -->
 
       <!--listGambar-->
       <div class="container" id="image-container">
-      
+        <div class="container" id="detail-image">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <a @click="isCardModalActive = true" href="#">
+                  <img
+                    src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif"
+                    alt="Placeholder image"
+                  />
+                </a>
+              </figure>
+              <div class="contents">
+                <h2 style="font-weight:bold; font-size:22px">Title goes here</h2>
+                <hr style="margin-top:10px; margin-bottom:10px">
+                <h4 style="font-style:italic">deadline goes here</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
 
         <div class="container" id="detail-image">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <a @click="isCardModalActive = true" href="#">
+                  <img
+                    src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif"
+                    alt="Placeholder image"
+                  />
+                </a>
+              </figure>
+              <div class="contents">
+                <h2 style="font-weight:bold; font-size:22px">Title goes here</h2>
+                <hr style="margin-top:10px; margin-bottom:10px">
+                <h4 style="font-style:italic">deadline goes here</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="container" id="detail-image">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <a @click="isCardModalActive = true" href="#">
+                  <img
+                    src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif"
+                    alt="Placeholder image"
+                  />
+                </a>
+              </figure>
+              <div class="contents">
+                <h2 style="font-weight:bold; font-size:22px">Title goes here</h2>
+                <hr style="margin-top:10px; margin-bottom:10px">
+                <h4 style="font-style:italic">deadline goes here</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="container" id="detail-image">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <a @click="isCardModalActive = true" href="#">
+                  <img
+                    src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif"
+                    alt="Placeholder image"
+                  />
+                </a>
+              </figure>
+              <div class="contents">
+                <h2 style="font-weight:bold; font-size:22px">Title goes here</h2>
+                <hr style="margin-top:10px; margin-bottom:10px">
+                <h4 style="font-style:italic">deadline goes here</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+         <div class="container" id="detail-image">
           <div class="card">
             <div class="card-image">
               <figure class="image is-4by3">
@@ -159,15 +239,17 @@
 </template>
 
 <script>
+import MainContent from '../views/MainContent'
 export default {
-    name: 'HomePage',
-    data(){
-        
-        return {
-            isCardModalActive : false    
-        }
+  name: 'App',
+  data(){
+    return {
+      isCardModalActive : false
     }
-
+  },
+  components: {
+    MainContent
+  },
 }
 </script>
 

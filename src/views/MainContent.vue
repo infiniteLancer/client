@@ -1,16 +1,15 @@
 <template>
   <div class="home">
-
-    <Navbar @changePage="changePage"></Navbar>
-
-    <HomePage v-if="page === 'home'"></HomePage>
-
-    <CreateJob v-if="page === 'create'"></CreateJob>
-
-    
-
     <div>
+
+        <Navbar v-if="isLogin == true" @changePage="changePage" @loginStatus="gantiLogin"></Navbar>
+
+        <MyList v-if="page == 'myList' && isLogin == true"></MyList>
+        
+        <HomePage v-if="isLogin == true"></HomePage>
+
       <login v-if="!isLogin" @loginStatus='gantiLogin'></login>
+      
     </div>
     <!--navbar-->
   </div> <!--end content-->
@@ -21,24 +20,21 @@
   import HomePage from '../components/Home-page'
   import CreateJob from '../components/Create-jobs'
   import Navbar from '../components/Navbar'
+  import MyList from '../components/My-list'
   
   export default {
     data() {
       return {
         page: 'home',
-        isImageModalActive1: false,
-        isCardModalActive2: false,
-        isCardModalActive3: false,
-        tags:[],
-        dropFiles: [],
-        isLogin : false,
+        isLogin : true,
       };
     },
     components:{
       Login,
       HomePage,
       CreateJob,
-      Navbar
+      Navbar,
+      MyList
     },
     methods: {
       deleteDropFile(index) {
