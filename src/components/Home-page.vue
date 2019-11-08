@@ -41,7 +41,7 @@
 
        
 
-        <b-modal :active.sync="isCardModalActive" :width="640" scroll="keep">
+        <b-modal :active.sync="isCardModalActive" :width="1000" scroll="keep">
           <div class="card">
             <div class="card-image">
               <figure class="image is-4by3">
@@ -126,9 +126,7 @@
 
 
                         <h3 style="font-style:italic">references :</h3>
-
-                        <br>
-                        <hr>    
+    
                         <br>
                         <br>
                         
@@ -137,7 +135,7 @@
 
 
                   <div class="card-image">
-                    <figure class="image is-4by3">
+                    <figure class="image is-4by2">
                       <img
                         src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif"
                         alt="Image"
@@ -145,7 +143,7 @@
                     </figure>
                   </div>
                   <div class="card-image">
-                    <figure class="image is-4by3">
+                    <figure class="image is-4by2">
                       <img
                         src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif"
                         alt="Image"

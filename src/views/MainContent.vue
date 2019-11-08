@@ -1,13 +1,26 @@
 <template>
   <div class="home">
+<<<<<<< HEAD
     <Navbar @changePage="changePage"></Navbar>
 
     <HomePage v-if="page === 'home'"></HomePage>
+=======
+    <div>
 
-    <CreateJob v-if="page === 'create'"></CreateJob>
+        <Navbar v-if="isLogin == true" @changePage="changePage" @loginStatus="gantiLogin"></Navbar>
+>>>>>>> e64e220463de3be78de69ec674aa92d04eaeb910
 
+        <MyList v-if="page == 'myList' && isLogin == true"></MyList>
+        
+        <HomePage v-if="isLogin == true"></HomePage>
+
+<<<<<<< HEAD
     <div>
       <login v-if="!isLogin" @loginStatus="gantiLogin"></login>
+=======
+      <login v-if="!isLogin" @loginStatus='gantiLogin'></login>
+      
+>>>>>>> e64e220463de3be78de69ec674aa92d04eaeb910
     </div>
     <!--navbar-->
   </div>
@@ -15,6 +28,7 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import Login from "./Login ";
 import HomePage from "../components/Home-page";
 import CreateJob from "../components/Create-jobs";
@@ -41,6 +55,27 @@ export default {
   methods: {
     deleteDropFile(index) {
       this.dropFiles.splice(index, 1);
+=======
+  import Login from './Login '
+  import HomePage from '../components/Home-page'
+  import CreateJob from '../components/Create-jobs'
+  import Navbar from '../components/Navbar'
+  import MyList from '../components/My-list'
+  
+  export default {
+    data() {
+      return {
+        page: 'home',
+        isLogin : true,
+      };
+    },
+    components:{
+      Login,
+      HomePage,
+      CreateJob,
+      Navbar,
+      MyList
+>>>>>>> e64e220463de3be78de69ec674aa92d04eaeb910
     },
     gantiLogin(status) {
       console.log("dari ganti login");
