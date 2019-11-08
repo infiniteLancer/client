@@ -15,36 +15,33 @@
 
       <!--listGambar-->
       <div class="container" id="image-container">
-      
 
-        <div class="container" id="detail-image">
+        <div class="container" id="detail-image" v-for="(vacancy, i) in imageVacancy" :key="i">
           <div class="card">
             <div class="card-image">
               <figure class="image is-4by3">
-                <a @click="isCardModalActive = true" href="#">
+                <a @click="isCardModalActive = true; index = i" href="#">
                   <img
-                    src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif"
+                    :src="vacancy.reference[0]"
                     alt="Placeholder image"
                   />
                 </a>
               </figure>
               <div class="contents">
-                <h2 style="font-weight:bold; font-size:22px">Title goes here</h2>
+                <h2 style="font-weight:bold; font-size:22px">{{vacancy.name}}</h2>
                 <hr style="margin-top:10px; margin-bottom:10px">
-                <h4 style="font-style:italic">deadline goes here</h4>
+                <h4 style="font-style:italic">{{vacancy.deadline}}</h4>
               </div>
             </div>
           </div>
         </div>
-
-       
 
         <b-modal :active.sync="isCardModalActive" :width="640" scroll="keep">
           <div class="card">
             <div class="card-image">
               <figure class="image is-4by3">
                 <img
-                  src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif"
+                  :src="imageVacancy[index].reference[0]"
                   alt="Image"
                 />
               </figure>
@@ -55,7 +52,7 @@
                 <div class="media-content" style="display:flex; justify-content:center;flex-direction:column;">
                     <div class="content-text">
 
-                        <h3 style="font-size:36px">Title goes here</h3>
+                        <h3 style="font-size:36px">{{ imageVacancy[index].name }}</h3>
 
                         <br>
                         <hr>    
@@ -65,26 +62,22 @@
                         <br>
 
                         <h3>
-                          goes here, and there are a lots of texts gonna be here sdfksldfjlksdjklskdsdgsd
-                          sdgsjdnjsdnfsndjfnskdnfkjsdnfjksdffsadkjnkadg sdfksldfjlksdjklskdsdgsd
-                          sdgsjdnjsdnfsndjfnskdnfkjsdnfjksdffsadkjnkadg
-                          sdfksldfjlksdjklskdsdgsd
-                          sdgsjdnjsdnfsndjfnskdnfkjsdnfjksdffsadkjnkadg
+                          {{ imageVacancy[index].description }}
                         </h3>
                           
                         <br>
                         <hr>    
                         <br>
                         
-                        <i class="fas fa-user-tie"></i><a style="margin-right:25px">  Owner  </a><i class="fas fa-mobile-alt"></i> Phone <a style="margin-right:25px"> </a><i class="far fa-envelope"></i>  email goes here
+                        <i class="fas fa-user-tie"></i><a style="margin-right:25px">  Owner : {{ imageVacancy[index].UserId.username }} </a><i class="fas fa-mobile-alt"></i> {{ imageVacancy[index].phone }} <a style="margin-right:25px"> </a><i class="far fa-envelope"></i>  {{ imageVacancy[index].UserId.email }}
                         
                         
-                        <br>
-                        <hr>    
+                          <br>
+                          <hr>    
                         <br>
                         <br>
 
-                        <small>Deadline : 11:09 PM - 1 Jan 2016</small>
+                        <small>Deadline : {{ imageVacancy[index].deadline }}</small>
 
                         <br>
                         <hr>    
@@ -92,11 +85,7 @@
                         <br>
                           <template>
                               <b-taglist>
-                                  <b-tag type="is-info">First</b-tag>
-                                  <b-tag type="is-info">Second</b-tag>
-                                  <b-tag type="is-info">Third</b-tag>
-                                  <b-tag type="is-info">Fourth</b-tag>
-                                  <b-tag type="is-info">Fifth</b-tag>
+                                  <b-tag v-for="(skill, i) in imageVacancy[index].skill" :key="i" type="is-info">{{skill}}</b-tag>
                               </b-taglist>
                           </template>
 
@@ -108,14 +97,17 @@
                         
                         <h5><i class="fas fa-user-friends" style="margin-top:20px;margin-bottom:20px"></i> people assigned</h5>
 
-                        <h5>requested by  5 users<h5>
+                        <h5>requested by  {{ imageVacancy[index].request.length }} users<h5>
                           
                         <br>
                         <hr>    
                         <br>
                         <br>
 
-                          <i class="far fa-bookmark"> taken</i>
+                          <i class="fas fa-bookmark" v-if="imageVacancy[index].takenBy" > taken </i>
+                          <i class="far fa-bookmark" v-else-if="!imageVacancy [index].takenBy" >
+                            <button type="button" @click="request(imageVacancy[index]._id)"> Request Here!  </button>
+                          </i>
 
                         <br>
                         <hr>    
@@ -134,18 +126,13 @@
                     </div>
 
 
-                  <div class="card-image">
-                    <figure class="image is-4by3">
-                      <img
-                        src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif"
-                        alt="Image"
-                      />
-                    </figure>
+                  <div v-if="imageVacancy[index].reference.length > 1">
+                  <div v-for="(vacancy, i) in imageVacancy[index].references" :key="i">
                   </div>
                   <div class="card-image">
-                    <figure class="image is-4by3">
+                    <figure class="image is-4by3" >
                       <img
-                        src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d04e8587625277.5dbfdbf5920f5.gif"
+                        :src="imageVacancy[index].reference[i+1]"
                         alt="Image"
                       />
                     </figure>
@@ -154,6 +141,7 @@
               </div>
             </div>
           </div>
+          </div>
         </b-modal>
         <!--end modal-->
       </div>
@@ -161,15 +149,78 @@
 </template>
 
 <script>
+
+import axios from '../../apis/server'
+import Swal from 'sweetalert2'
+
 export default {
     name: 'HomePage',
     data(){
-        
         return {
-            isCardModalActive : false    
+            isCardModalActive : false,
+            imageVacancy : [],
+            index : 0,
+            Toast : Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 1500
+            })
         }
+    },
+    methods : {
+      image(){
+        Swal.showLoading()
+        axios({
+          method : 'get',
+          url : '/vacancy'
+        })
+        .then(({data})=>{
+          Swal.close()
+          this.imageVacancy = data
+        })
+        .catch(err=>{
+          Swal.close()
+          Swal.fire({
+						icon: 'error',
+						title: 'Sorry,',
+						text: err.response.data.errors.join(', ')
+					})
+        })
+      },
+      request(id){
+        Swal.showLoading()
+        axios({
+          url : '/vacancy/request',
+          data : {
+            id 
+          },
+          method : 'patch',
+          headers : {
+            token : localStorage.getItem('token')
+          }
+        })
+        .then(({ data })=>{
+          Swal.close()
+          this.isCardModalActive = false
+          this.Toast.fire({
+						icon: 'success',
+						title: 'Request successfully'
+					})
+        })
+        .catch(err=>{
+          Swal.close()
+          Swal.fire({
+						icon: 'error',
+						title: 'Sorry,',
+						text: err.response.data.errors.join(', ')
+					})
+        })
+      }
+    },
+    created(){
+        this.image()
     }
-
 }
 </script>
 
