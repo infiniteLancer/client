@@ -1,7 +1,7 @@
 <template>
     <div>
         <section class="hero is-primary is-fullheight">
-            <div v-if="page == 'login'" class="hero-body" style="background-image: url('../../img/login-page.jpg');">
+            <div v-if="page == 'login'" class="hero-body">
                 <div class="container">
                       <div class="columns is-centered">
                         <div class="column is-5-tablet is-4-desktop is-3-widescreen" style="display:flex; justify-content:space-between">
@@ -14,16 +14,15 @@
                         </div>
 
                         <!-- ------------------- -->
-                        <loginPage @loginStatus='gantiLogin' @pageStatus='gantiPage'></loginPage>
-                        
-                          <!-- ------------------- -->
+                        <loginPage v-if="page == 'login'" @loginStatus='gantiLogin' @pageStatus='gantiPage'></loginPage>
+                        <!-- ------------------- -->
 
                         </div>
                       </div>
                     </div>
 
             </div>
-            <div v-if="page == 'register'" class="hero-body" style="background-image: url('../../img/register-page.jpg');">
+            <div v-if="page == 'register'" class="hero-body">
 
                     <div class="container">
                       <div class="columns is-centered">
@@ -37,7 +36,7 @@
 
                         <!-- ------------------- -->
                         
-                        <registerPage @pageStatus='gantiPage'></registerPage>
+                        <registerPage v-if="page == 'register'" @pageStatus='gantiPage'></registerPage>
                           <!-- ------------------- -->
 
                         </div>
@@ -53,10 +52,10 @@
 import loginPage from '../components/Login-page'
 import registerPage from '../components/Register-page'
 export default {
+    name:"Login",
     data(){
         return {
-            
-            page:'login'
+            page: 'login'
         }
     },
     methods: {
