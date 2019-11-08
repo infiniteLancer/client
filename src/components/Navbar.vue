@@ -25,7 +25,7 @@
 
     </b-navbar>
      <b-modal :active.sync="isCardModalActive" :width="1000" scroll="keep">
-    <CreateJob></CreateJob>
+    <CreateJob @closeModal="closeModal"></CreateJob>
     </b-modal>
 
 
@@ -54,6 +54,9 @@ export default {
         removeLocalStorage(){
             localStorage.clear()
             this.$emit('loginStatus',false)
+        },
+        closeModal(status){
+            this.isCardModalActive = status
         }
     },
     components:{
