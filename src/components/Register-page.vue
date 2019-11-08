@@ -2,11 +2,11 @@
 
 <div>
   
-        <form action="" class="box" style="padding:2rem;">
+        <form @submit.prevent="register" class="box" style="padding:2rem;">
           <div class="field">
             <label for="" class="label">Username</label>
             <div class="control has-icons-left">
-              <input type="username" placeholder="e.g. bobsmith" class="input">
+              <input type="username" placeholder="e.g. bobsmith" class="input" v-model="username">
               <span class="icon is-small is-left">
                 <i class="fas fa-user"></i>
               </span>
@@ -16,7 +16,7 @@
             <div class="field">
             <label for="" class="label">Email</label>
             <div class="control has-icons-left">
-              <input type="text" placeholder="e.g. bobsmith@gmail.com" class="input">
+              <input type="text" placeholder="e.g. bobsmith@gmail.com" class="input" v-model="email">
               <span class="icon is-small is-left">
                 <i class="fa fa-envelope"></i>
               </span>
@@ -26,7 +26,7 @@
           <div class="field">
             <label for="" class="label">Password</label>
             <div class="control has-icons-left">
-              <input type="password" placeholder="*******" class="input">
+              <input type="password" placeholder="*******" class="input" v-model="password">
               <span class="icon is-small is-left">
                 <i class="fa fa-lock"></i>
               </span>
@@ -36,7 +36,7 @@
           <div class="field">
             <label for="" class="label">Phone</label>
             <div class="control has-icons-left">
-              <input type="phone" placeholder="+62 " class="input">
+              <input type="phone" placeholder="+62 " class="input" v-model="phone">
               <span class="icon is-small is-left">
                 <i class="fas fa-mobile-alt"></i>
               </span>
@@ -96,11 +96,11 @@
           
 
           <div class="field" style="display:flex; justify-content:space-between; margin-right:100px; margin-left:100px">
-            <button class="button is-success">
-              Register
+            <button type="button" class="button is-success" @click="login">
+              Login
             </button>
-             <button type="submit" class="button is-success">
-            Login
+            <button type="submit" class="button is-success">
+              Register
             </button>
           </div>
         </form>
@@ -113,6 +113,9 @@
 </template>
 
 <script>
+import axios from '../../apis/server'
+import Swal from 'sweetalert2'
+
 export default {
     props:{
       
@@ -124,36 +127,56 @@ export default {
         username: '',
         phone : '',
         dropFiles : [],
-        tags : []
+        tags : [],
+        Toast : Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }
     },
-    login(){
-        this.$emit('pageStatus','login')
-    },
-    register(){
-        // axios({
-            //     method: 'post',
-            //     url: '/user/12345',
-            //     data: {
-                    // email :'',
-                    // password : '',
-                    // username: '',
-                    // phone : '',
-                    // dropFiles : [],
-                    // tags : []
-            //     }
-            //     })
-                // .then(({data}) => {
-                //     localStorage.setItem('token', 'data')
-                //     this.$emit('loginStatus', true)
-                // })
-                // .catch(err => {
-                //     console.log(err)
-                // })
-          // console.log('dari register')
-        localStorage.setItem('token','lalala')
-        this.$emit('loginStatus',true)
-      }
+    methods: {
+      login(){
+          this.$emit('pageStatus','login')
+      },
+      register(){
+        let fd = new FormData()
+        this.dropFiles.forEach(image => {
+          fd.append('imgUrl', image)
+        });
+        this.tags.forEach(skill => {
+          fd.set('skill', skill)
+        })
+        fd.set('username', this.username)
+        fd.set('email', this.email)
+        fd.set('password', this.password)
+        fd.set('phone', this.phone)
+        
+
+        axios({
+          method: 'post',
+          url: '/register',
+          data: fd
+        })
+          .then(({data}) => {
+            localStorage.setItem('token', data.token)
+            localStorage.setItem('name', data.username)
+            this.$emit('loginStatus',true)
+            thi.Toast.fire({
+              icon: 'success',
+              title: 'Register successfully'
+            })
+          })
+          .catch(err => {
+            Swal.fire({
+              icon: 'error',
+              title: 'Sorry,',
+              text: err.response.data.errors.join(', ')
+            })
+          })
+    }
+  }
 }
 </script>
 
