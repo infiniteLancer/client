@@ -13603,12 +13603,11 @@ var _default = {
         localStorage.setItem('token', data.token);
         localStorage.setItem('username', data.username);
 
-        _this.Toast.fire({
-          icon: 'success',
-          title: 'Login successfully'
-        });
+        _this.$emit('loginStatus', true); // this.Toast.fire({
+        // 	icon: 'success',
+        // 	title: 'Login successfully'
+        // })
 
-        _this.$emit('loginStatus', true);
       }).catch(function (err) {
         _sweetalert.default.fire({
           icon: 'error',
@@ -13939,47 +13938,47 @@ var _default = {
       })
     };
   },
-  login: function login() {
-    this.$emit('pageStatus', 'login');
-  },
-  register: function register() {
-    var _this = this;
+  methods: {
+    login: function login() {
+      this.$emit('pageStatus', 'login');
+    },
+    register: function register() {
+      var _this = this;
 
-    (0, _server.default)({
-      method: 'post',
-      url: '/register',
-      data: {
-        username: this.username,
-        email: this.email,
-        password: this.password,
-        phone: this.phone,
-        skill: this.tags,
-        imgUrl: this.dropFiles,
-        Toast: _sweetalert.default.mixin({
-          toast: true,
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 1500
-        })
-      }
-    }).then(function (_ref) {
-      var data = _ref.data;
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('name', data.username);
-
-      _this.$emit('loginStatus', true);
-
-      thi.Toast.fire({
-        icon: 'success',
-        title: 'Register successfully'
+      var fd = new FormData();
+      this.dropFiles.forEach(function (image) {
+        fd.append('imgUrl', image);
       });
-    }).catch(function (err) {
-      _sweetalert.default.fire({
-        icon: 'error',
-        title: 'Sorry,',
-        text: err.response.data.errors.join(', ')
+      this.tags.forEach(function (skill) {
+        fd.set('skill', skill);
       });
-    });
+      fd.set('username', this.username);
+      fd.set('email', this.email);
+      fd.set('password', this.password);
+      fd.set('phone', this.phone);
+      (0, _server.default)({
+        method: 'post',
+        url: '/register',
+        data: fd
+      }).then(function (_ref) {
+        var data = _ref.data;
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('name', data.username);
+
+        _this.$emit('loginStatus', true);
+
+        thi.Toast.fire({
+          icon: 'success',
+          title: 'Register successfully'
+        });
+      }).catch(function (err) {
+        _sweetalert.default.fire({
+          icon: 'error',
+          title: 'Sorry,',
+          text: err.response.data.errors.join(', ')
+        });
+      });
+    }
   }
 };
 exports.default = _default;
@@ -14001,7 +14000,12 @@ exports.default = _default;
       {
         staticClass: "box",
         staticStyle: { padding: "2rem" },
-        attrs: { action: "" }
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.register($event)
+          }
+        }
       },
       [
         _c("div", { staticClass: "field" }, [
@@ -14250,7 +14254,35 @@ exports.default = _default;
           ])
         ]),
         _vm._v(" "),
-        _vm._m(4)
+        _c(
+          "div",
+          {
+            staticClass: "field",
+            staticStyle: {
+              display: "flex",
+              "justify-content": "space-between",
+              "margin-right": "100px",
+              "margin-left": "100px"
+            }
+          },
+          [
+            _c(
+              "button",
+              {
+                staticClass: "button is-success",
+                attrs: { type: "button" },
+                on: { click: _vm.login }
+              },
+              [_vm._v("\n              Login\n            ")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "button is-success", attrs: { type: "submit" } },
+              [_vm._v("\n              Register\n            ")]
+            )
+          ]
+        )
       ]
     )
   ])
@@ -14287,34 +14319,6 @@ var staticRenderFns = [
     return _c("span", { staticClass: "icon is-small is-left" }, [
       _c("i", { staticClass: "fas fa-mobile-alt" })
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "field",
-        staticStyle: {
-          display: "flex",
-          "justify-content": "space-between",
-          "margin-right": "100px",
-          "margin-left": "100px"
-        }
-      },
-      [
-        _c("button", { staticClass: "button is-success" }, [
-          _vm._v("\n              Register\n            ")
-        ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "button is-success", attrs: { type: "submit" } },
-          [_vm._v("\n            Login\n            ")]
-        )
-      ]
-    )
   }
 ]
 render._withStripped = true
@@ -14515,7 +14519,12 @@ exports.default = _default;
                     [
                       _vm._m(1),
                       _vm._v(" "),
-                      _c("registerPage", { on: { pageStatus: _vm.gantiPage } })
+                      _c("registerPage", {
+                        on: {
+                          loginStatus: _vm.gantiLogin,
+                          pageStatus: _vm.gantiPage
+                        }
+                      })
                     ],
                     1
                   )
@@ -31774,7 +31783,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "35093" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37389" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -2,7 +2,7 @@
 
 <div>
   
-        <form action="" class="box" style="padding:2rem;">
+        <form @submit.prevent="register" class="box" style="padding:2rem;">
           <div class="field">
             <label for="" class="label">Username</label>
             <div class="control has-icons-left">
@@ -96,11 +96,11 @@
           
 
           <div class="field" style="display:flex; justify-content:space-between; margin-right:100px; margin-left:100px">
-            <button class="button is-success">
-              Register
+            <button type="button" class="button is-success" @click="login">
+              Login
             </button>
-             <button type="submit" class="button is-success">
-            Login
+            <button type="submit" class="button is-success">
+              Register
             </button>
           </div>
         </form>
@@ -136,45 +136,47 @@ export default {
         })
       }
     },
-    login(){
-        this.$emit('pageStatus','login')
-    },
-    register(){
-      axios({
-				method: 'post',
-				url: '/register',
-				data: {
-					username: this.username,
-					email: this.email,
-          password: this.password,
-          phone: this.phone,
-          skill: this.tags,
-          imgUrl: this.dropFiles,
-          Toast : Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 1500
-          })
-				}
-			})
-        .then(({data}) => {
-          localStorage.setItem('token', data.token)
-					localStorage.setItem('name', data.username)
-          this.$emit('loginStatus',true)
-          thi.Toast.fire({
-						icon: 'success',
-						title: 'Register successfully'
-					})
+    methods: {
+      login(){
+          this.$emit('pageStatus','login')
+      },
+      register(){
+        let fd = new FormData()
+        this.dropFiles.forEach(image => {
+          fd.append('imgUrl', image)
+        });
+        this.tags.forEach(skill => {
+          fd.set('skill', skill)
         })
-        .catch(err => {
-					Swal.fire({
-						icon: 'error',
-						title: 'Sorry,',
-						text: err.response.data.errors.join(', ')
-					})
-				})
-      }
+        fd.set('username', this.username)
+        fd.set('email', this.email)
+        fd.set('password', this.password)
+        fd.set('phone', this.phone)
+        
+
+        axios({
+          method: 'post',
+          url: '/register',
+          data: fd
+        })
+          .then(({data}) => {
+            localStorage.setItem('token', data.token)
+            localStorage.setItem('name', data.username)
+            this.$emit('loginStatus',true)
+            thi.Toast.fire({
+              icon: 'success',
+              title: 'Register successfully'
+            })
+          })
+          .catch(err => {
+            Swal.fire({
+              icon: 'error',
+              title: 'Sorry,',
+              text: err.response.data.errors.join(', ')
+            })
+          })
+    }
+  }
 }
 </script>
 

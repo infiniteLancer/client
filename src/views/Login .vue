@@ -37,7 +37,7 @@
 
                         <!-- ------------------- -->
                         
-                        <registerPage @pageStatus='gantiPage'></registerPage>
+                        <registerPage @loginStatus='gantiLogin' @pageStatus='gantiPage' ></registerPage>
                           <!-- ------------------- -->
 
                         </div>
