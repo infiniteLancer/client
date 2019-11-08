@@ -1,21 +1,61 @@
 <template>
   <div class="home">
+<<<<<<< HEAD
+    <Navbar @changePage="changePage"></Navbar>
+
+    <HomePage v-if="page === 'home'"></HomePage>
+=======
     <div>
 
         <Navbar v-if="isLogin == true" @changePage="changePage" @loginStatus="gantiLogin"></Navbar>
+>>>>>>> e64e220463de3be78de69ec674aa92d04eaeb910
 
         <MyList v-if="page == 'myList' && isLogin == true"></MyList>
         
         <HomePage v-if="isLogin == true"></HomePage>
 
+<<<<<<< HEAD
+    <div>
+      <login v-if="!isLogin" @loginStatus="gantiLogin"></login>
+=======
       <login v-if="!isLogin" @loginStatus='gantiLogin'></login>
       
+>>>>>>> e64e220463de3be78de69ec674aa92d04eaeb910
     </div>
     <!--navbar-->
-  </div> <!--end content-->
+  </div>
+  <!--end content-->
 </template>
 
 <script>
+<<<<<<< HEAD
+import Login from "./Login ";
+import HomePage from "../components/Home-page";
+import CreateJob from "../components/Create-jobs";
+import Navbar from "../components/Navbar";
+
+export default {
+  data() {
+    return {
+      page: "home",
+      isImageModalActive1: false,
+      isCardModalActive2: false,
+      isCardModalActive3: false,
+      tags: [],
+      dropFiles: [],
+      isLogin: false
+    };
+  },
+  components: {
+    Login,
+    HomePage,
+    CreateJob,
+    Navbar
+  },
+  methods: {
+    deleteDropFile(index) {
+      this.dropFiles.splice(index, 1);
+=======
   import Login from './Login '
   import HomePage from '../components/Home-page'
   import CreateJob from '../components/Create-jobs'
@@ -35,25 +75,22 @@
       CreateJob,
       Navbar,
       MyList
+>>>>>>> e64e220463de3be78de69ec674aa92d04eaeb910
     },
-    methods: {
-      deleteDropFile(index) {
-          this.dropFiles.splice(index, 1)
-      },
-      gantiLogin(status){
-          console.log('dari ganti login')
-          this.isLogin = status
-      },
-      changePage(page){
-        this.page = page
-      }
+    gantiLogin(status) {
+      console.log("dari ganti login");
+      this.isLogin = status;
     },
-    created(){
-      if(localStorage.getItem('token')){
-        this.isLogin = true
-      }
+    changePage(page) {
+      this.page = page;
     }
-  };
+  },
+  created() {
+    if (localStorage.getItem("token")) {
+      this.isLogin = true;
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -67,11 +104,10 @@ body {
 }
 
 .container-fluid {
-    width: 100%;
-    padding-right: 20%;
-    padding-left: 20%;
-    margin-top: 10%;
-    
+  width: 100%;
+  padding-right: 20%;
+  padding-left: 20%;
+  margin-top: 10%;
 }
 #navbar-home {
   background: #e0eafc; /* fallback for old browsers */
@@ -93,7 +129,7 @@ h1,
   display: flex;
   justify-content: center;
   margin-top: 10px;
-  margin-bottom:10px;
+  margin-bottom: 10px;
   font-weight: 500px;
   color: #353535;
 }
@@ -117,9 +153,9 @@ h1,
 #detail-image {
   width: 300px;
   margin: 2px;
-  box-shadow: 10px 10px 43px -22px rgba(0,0,0,0.53);
+  box-shadow: 10px 10px 43px -22px rgba(0, 0, 0, 0.53);
   animation: drop 2s ease;
-  margin: 20px
+  margin: 20px;
 }
 
 #detail-image:hover {
@@ -128,11 +164,11 @@ h1,
   transform: scale(1.1);
 }
 
-.contents{
-  margin-left:40px;
-  margin-top:20px;
-  margin-bottom:20px;
-  margin-right:40px;
+.contents {
+  margin-left: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 40px;
 }
 
 @keyframes drop {
@@ -148,45 +184,52 @@ h1,
 }
 
 .columns {
-    margin-left: -40em;
-    margin-right: -40rem;
-    margin-top: -rem;
-    
+  margin-left: -40em;
+  margin-right: -40rem;
+  margin-top: -rem;
 }
 
 .box {
-    background-color: white;
-    border-radius: 25px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    color: #4a4a4a;
-    display: block;
-    padding: 4rem;
+  background-color: white;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: #4a4a4a;
+  display: block;
+  padding: 4rem;
 }
 
-.input, .taginput .taginput-container.is-focusable, .textarea, .select select {
-    background-color: white;
-    border-color: #dbdbdb;
-    border-radius: 25px;
-    color: #363636;
+.input,
+.taginput .taginput-container.is-focusable,
+.textarea,
+.select select {
+  background-color: white;
+  border-color: #dbdbdb;
+  border-radius: 25px;
+  color: #363636;
 }
 
 .button.is-success {
-    margin-top:20px;
-    background-color: #db349b;
-    border-color: transparent;
-    color: #fff;
-    border-radius: 25px;
-    width: 120px;
-    margin: 20px;
-    height: auto
+  margin-top: 20px;
+  background-color: #db349b;
+  border-color: transparent;
+  color: #fff;
+  border-radius: 25px;
+  width: 120px;
+  margin: 20px;
+  height: auto;
 }
 
 .label {
-    color: #363636;
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 600;
+  color: #363636;
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
+#frameImg,
+img {
+  width: 50px;
+  height: 60px;
+}
 </style>
 

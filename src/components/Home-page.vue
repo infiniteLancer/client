@@ -29,9 +29,12 @@
                 </a>
               </figure>
               <div class="contents">
+
                 <h2 style="font-weight:bold; font-size:22px">{{vacancy.name}}</h2>
                 <hr style="margin-top:10px; margin-bottom:10px">
+                <h4 style="font-style:italic">deadline goes here</h4>
                 <h4 style="font-style:italic">{{vacancy.deadline}}</h4>
+                <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="large" style="margin-top:30px;"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Bagikan</a></div>
               </div>
             </div>
           </div>
@@ -153,18 +156,20 @@ import axios from '../../apis/server'
 import Swal from 'sweetalert2'
 
 export default {
+  
     name: 'HomePage',
     data(){
         return {
-            isCardModalActive : false,
-            imageVacancy : [],
-            index : 0,
-            Toast : Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 1500
-            })
+          detailFb: false,
+          isCardModalActive : false,
+          imageVacancy : [],
+          index : 0,
+          Toast : Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 1500
+          })
         }
     },
     methods : {
@@ -218,7 +223,7 @@ export default {
       }
     },
     created(){
-        this.image()
+        this.image()  
     }
 }
 </script>
