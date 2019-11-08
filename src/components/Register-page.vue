@@ -117,64 +117,77 @@ import axios from '../../apis/server'
 import Swal from 'sweetalert2'
 
 export default {
-    props:{
-      
+  props:{
+    
+  },
+  data(){
+    return{
+      email :'',
+      password : '',
+      username: '',
+      phone : '',
+      dropFiles : [],
+      tags : [],
+      Toast : Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
+  },
+  methods: {
+    login(){
+        this.$emit('pageStatus','login')
     },
-    data(){
-      return{
-        email :'',
-        password : '',
-        username: '',
-        phone : '',
-        dropFiles : [],
-        tags : [],
-        Toast : Swal.mixin({
-          toast: true,
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 1500
-        })
-      }
-    },
-    methods: {
-      login(){
-          this.$emit('pageStatus','login')
-      },
-      register(){
-        let fd = new FormData()
-        this.dropFiles.forEach(image => {
-          fd.append('imgUrl', image)
-        });
-        this.tags.forEach(skill => {
-          fd.set('skill', skill)
-        })
-        fd.set('username', this.username)
-        fd.set('email', this.email)
-        fd.set('password', this.password)
-        fd.set('phone', this.phone)
-        
+    register(){
+      Swal.showLoading()
 
-        axios({
-          method: 'post',
-          url: '/register',
-          data: fd
+      let fd = new FormData()
+      this.dropFiles.forEach(image => {
+        fd.append('imgUrl', image)
+      });
+      this.tags.forEach(skill => {
+        fd.append('skill', skill)
+      })
+      fd.set('username', this.username)
+      fd.set('email', this.email)
+      fd.set('password', this.password)
+      fd.set('phone', this.phone)
+
+      axios({
+        method: 'post',
+        url: '/register',
+        data: fd
+      })
+        .then(({data}) => {
+          localStorage.setItem('token', data.token)
+          localStorage.setItem('name', data.username)
+          this.email = ''
+          this.password = ''
+          this.username = ''
+          this.phone = ''
+          this.dropFiles = []
+          this.tags = []
+          
+          Swal.close()
+          this.$emit('loginStatus',true)
+          this.Toast.fire({
+            icon: 'success',
+            title: 'Register successfully'
+          })
         })
-          .then(({data}) => {
-            localStorage.setItem('token', data.token)
-            localStorage.setItem('name', data.username)
-            this.$emit('loginStatus',true)
-            thi.Toast.fire({
-              icon: 'success',
-              title: 'Register successfully'
-            })
+        .catch(err => {
+          Swal.close()
+          Swal.fire({
+            icon: 'error',
+            title: 'Sorry,',
+            text: err.response.data.errors.join(', ')
           })
-          .catch(err => {
-            Swal.fire({
-              icon: 'error',
-              title: 'Sorry,',
-              text: err.response.data.errors.join(', ')
-            })
-          })
+        })
+    },
+    deleteDropFile(index) {
+      this.dropFiles.splice(index, 1)
     }
   }
 }

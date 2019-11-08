@@ -57,6 +57,8 @@ export default {
     },
     methods:{
         signIn(){
+            Swal.showLoading()
+
             axios({
                 method: 'post',
                 url: '/login',
@@ -68,13 +70,18 @@ export default {
                 .then(({data}) => {
                     localStorage.setItem('token', data.token)
                     localStorage.setItem('username', data.username)
-                    this.$emit('loginStatus',true)  
-                    // this.Toast.fire({
-					// 	icon: 'success',
-					// 	title: 'Login successfully'
-					// })
+                    this.email=''
+                    this.password=''
+                    
+                    Swal.close()
+                    this.$emit('loginStatus',true)
+                    this.Toast.fire({
+						icon: 'success',
+						title: 'Login successfully'
+					})
                 })
                 .catch(err => {
+                    Swal.close()
                     Swal.fire({
 						icon: 'error',
 						title: 'Sorry,',
